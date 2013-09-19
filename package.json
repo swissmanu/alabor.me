@@ -1,10 +1,11 @@
 {
-  "name":"alabor.me",
-  "version":"0.0.0",
+  "name": "alabor.me",
+  "version": "0.0.0",
   "dependencies": {
     "moment": "2.x",
     "underscore": "1.4.x",
-    "typogr": "0.5.x"
+    "typogr": "0.5.x",
+    "wintersmith-sass": "~0.2.1"
   },
   "repository": "none",
   "author": "Manuel Alabor <msites@msites.net>"

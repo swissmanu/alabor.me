@@ -1,0 +1,26 @@
+article {
+	&.violet {
+		background-color: $violet;
+		color: $lighttextcolor;
+		text-shadow: 0 0 3px darken($violet, 20%);
+
+		a {
+			color: $lightlinkcolor;
+		}
+	}
+
+	&.orange {
+		background-color: $orange;
+		text-shadow: 0 0 1px darken($orange, 20%);
+	}
+
+	&.blue {
+		background-color: $blue;
+		color: $lighttextcolor;
+		text-shadow: 0 0 3px darken($blue, 20%);
+		
+		a {
+			color: $lightlinkcolor;
+		}
+	}	
+}

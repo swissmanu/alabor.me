@@ -13,9 +13,10 @@ block header
 
 block content
 	include comments
-	article.article
-		section.content!= typogr(page.html).typogrify()
-		+comments()
+	article(class="article #{ page.metadata.styleClass || '' }") 
+		div.content-wrap
+			section.content!= typogr(page.html).typogrify()
+	+comments()
 
 
 block prepend footer

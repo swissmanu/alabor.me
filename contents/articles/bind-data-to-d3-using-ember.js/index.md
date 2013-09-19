@@ -3,6 +3,7 @@ title: Bind Data to D3 using Ember.js
 date: 2012-09-13 10:09
 template: article.jade
 comments: true
+styleClass: orange
 ---
 
 When I started with [Ember.js](http://emberjs.com/) lately I fell in love with its data binding quickly. Tinkering with some ideas here and there I wanted to display numerical values within a line chart. After a short research I decided to use the mighty [D3 (Data Driven Documents)](http://d3js.org/) library for creating an [SVG](http://en.wikipedia.org/wiki/Scalable_Vector_Graphics)-based chart.

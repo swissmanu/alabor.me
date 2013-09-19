@@ -3,6 +3,7 @@ title: Arduino Ambilight
 date: 2012-02-20 18:37
 template: article.jade
 comments: true
+styleClass: blue
 ---
 
 Insbesondere auf [Instructables](http://www.instructables.com/) stolperte ich in der Vergangenheit über die eine oder andere interessante Elektronik-Bastelei welche einen [Arduino](http://www.arduino.cc/) als Kern verwendete.

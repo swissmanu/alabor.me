@@ -3,6 +3,7 @@ title: Request-Response oriented Websockets
 date: 2013-09-11 08:28
 template: article.jade
 comments: true
+styleClass: violet
 ---
 The nature of [websockets](https://developer.mozilla.org/de/docs/WebSockets) allows data transfer between two peers in "*realtime*". This mechanism is perfect for exchanging events without relation to each other. But what if you want to ask your peer for some specific response and wait until this particular response arrives?
 
