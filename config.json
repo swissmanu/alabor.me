@@ -1,9 +1,8 @@
 {
   "locals": {
     "url": "http://localhost:8080",
-    "name": "The Wintersmith's blog",
-    "owner": "Someone",
-    "description": "Ramblings of an immor(t)al demigod"
+    "name": "alabor.me",
+    "owner": "Manuel Alabor"
   },
   "plugins": [
     "./plugins/paginator.coffee"

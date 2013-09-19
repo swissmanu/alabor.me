@@ -7,6 +7,8 @@ comments: true
 ---
 The nature of [websockets](https://developer.mozilla.org/de/docs/WebSockets) allow realtime data transfer between two peers in "realtime". This mechanism is perfect for exchanging events without relation to each other. But what if you want to ask your peer for some specific response and wait until this particular response arrives?
 
+<span class="more"></span>
+
 ### About the pattern
 This pattern is well-known under the name [Request-Reply](http://www.enterpriseintegrationpatterns.com/RequestReply.html) or [Request-Response](http://en.wikipedia.org/wiki/Request-response) and builds the basis for todays HTTP communication on the web. Following JavaScript code shows how the Node.JS API implements this pattern to request some HTTP response from a webserver:
 
@@ -63,14 +65,14 @@ server.listen(8080);
 
 Demonstrated in the code example above, *Primus Responder* adds two things to *Primus*' core functionality: 
 
-* A new event called *request* is emitted as soon as a peer requests a response.
-* The new method named *writeAndWait(data, fn)* writes data to a peer and runs given callback function as the peer sends its response.
+* A new event called `request` is emitted as soon as a peer requests a response.
+* The new method named `writeAndWait(data, fn)` writes data to a peer and runs given callback function as the peer sends its response.
 
 *Primus Responder* is available on the client too. Please see the [API documentation on Github](https://github.com/swissmanu/primus-responder#usage) for more detail.
 
 ### Inner Workings
 #### Request Envelope
-The request-response pattern is implemented using an additional protocal layer. When you call *writeAndWait(data, fn)*, *Primus Responder* wraps your data in an envelope containing some protocol meta information and sends it to the other peer:
+The request-response pattern is implemented using an additional protocal layer. When you call `writeAndWait(data, fn)`, *Primus Responder* wraps your data in an envelope containing some protocol meta information and sends it to the other peer:
 
 ```javascript
 {
@@ -80,10 +82,10 @@ The request-response pattern is implemented using an additional protocal layer. 
 };
 ```
 
-Besides the actual data and a plugin identifier, a request envelope contains a generated [GUID](http://en.wikipedia.org/wiki/Globally_unique_identifier). This unique identifier is used to map a returned response message to its original request. On the receiver side, *Primus Responder* intercepts messages with a request envelope and emits a *request* event. Registered event handlers then react on this event and send response data back to the requester.
+Besides the actual data and a plugin identifier, a request envelope contains a generated [GUID](http://en.wikipedia.org/wiki/Globally_unique_identifier). This unique identifier is used to map a returned response message to its original request. On the receiver side, *Primus Responder* intercepts messages with a request envelope and emits a `request` event. Registered event handlers then react on this event and send response data back to the requester.
 
 #### Response Envelope
-The response data is packaged into a response envelope containing the plugin name again, the response data and the original *requestId*. Notice that the former request identifier is called *responseId* now. That way, *Primus Responder* distinguishs between request and response envelopes.
+The response data is packaged into a response envelope containing the plugin name again, the response data and the original `requestId`. Notice that the former request identifier is called `responseId` now. That way, *Primus Responder* distinguishs between request and response envelopes.
 
 ```javascript
 {
@@ -93,9 +95,9 @@ The response data is packaged into a response envelope containing the plugin nam
 };
 ```
 
-Receiving a response envelope, *Primus Responder* intercepts the message and uses the response identifier to map the response back to the original request. It then executes the response callback originally defined when *writeAndWait(data, fn)* was called.
+Receiving a response envelope, *Primus Responder* intercepts the message and uses the response identifier to map the response back to the original request. It then executes the response callback originally defined when `writeAndWait(data, fn)` was called.
 
 #### Sequence Diagram
-Find the following sequence diagram for a complete overview (click to enlarge). *PrimusResponderA* and *PrimusResponderB* reflect the two *Primus Responder* instances on client and server.
+Find the following sequence diagram for a complete overview (click to enlarge). `PrimusResponderA` and `PrimusResponderB` reflect the two *Primus Responder* instances on client and server.
 
 ![Sequence Diagram](sequencediagram.png)

@@ -1,21 +1,19 @@
 ---
-view: none
+title: Hi, I'm Manuel
+template: article.jade
+comments: false
 ---
 
-Wintersmith is made by [Johan Nordberg][1] and licensed under the [MIT-license][2].
-This footer text can be edited in about.md
+Ich bin Software Engineer und leidenschaftlicher Technikbegeisterter aus der Schweiz.
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat.
+Meine berufliche Tätigkeit übe ich als iOS- und Web-Entwickler bei der [InnoTix AG](http://www.innotix.com/) in Zürich aus. Gleichzeitig studiere ich für den BSc in Informatik an der [Hochschule für Technik in Rapperswil](http://www.hsr.ch/).
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-dolore eu fugiat nulla pariatur.
+Die winterlichen Alpen geniesse ich in der Freizeit am liebsten auf einem Snowboard und bereise gerne den Rest der Welt, vorzugsweise auch unter Wasser.
 
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-deserunt mollit anim id est laborum.
+Daneben beschäftige ich mich in meiner Freizeit mit den neusten Technikspielereien oder widme mich kleineren [Projekten](http://alabor.me/projects), welche nicht unbedingt nur aus Programmierarbeit bestehen müssen.
 
-
-[1]: http://johan-nordberg.com
-[2]: http://opensource.org/licenses/MIT
+### Mehr von mir
+* Code-Repositories: [Github](http://www.github.com/swissmanu)
+* Social Network Addiction: [Facebook](http://www.facebook.com/manuel.alabor)
+* Tummelplatz: [Twitter](http://www.twitter.com/swissmanu)
+* Being serious: [XING](http://www.xing.com/profile/Manuel_Alabor) und [LinkedIn](http://ch.linkedin.com/in/manuelalabor)
