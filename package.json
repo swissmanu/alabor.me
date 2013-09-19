@@ -1,4 +1,6 @@
 {
+  "name":"alabor.me",
+  "version":"0.0.0",
   "dependencies": {
     "moment": "2.x",
     "underscore": "1.4.x",
