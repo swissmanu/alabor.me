@@ -1,11 +1,10 @@
 ---
-title: Request-Response ortiented Websockets
-author: manuel-alabor
+title: Request-Response oriented Websockets
 date: 2013-09-11 08:28
 template: article.jade
 comments: true
 ---
-The nature of [websockets](https://developer.mozilla.org/de/docs/WebSockets) allow realtime data transfer between two peers in "realtime". This mechanism is perfect for exchanging events without relation to each other. But what if you want to ask your peer for some specific response and wait until this particular response arrives?
+The nature of [websockets](https://developer.mozilla.org/de/docs/WebSockets) allows data transfer between two peers in "*realtime*". This mechanism is perfect for exchanging events without relation to each other. But what if you want to ask your peer for some specific response and wait until this particular response arrives?
 
 <span class="more"></span>
 
@@ -82,7 +81,7 @@ The request-response pattern is implemented using an additional protocal layer. 
 };
 ```
 
-Besides the actual data and a plugin identifier, a request envelope contains a generated [GUID](http://en.wikipedia.org/wiki/Globally_unique_identifier). This unique identifier is used to map a returned response message to its original request. On the receiver side, *Primus Responder* intercepts messages with a request envelope and emits a `request` event. Registered event handlers then react on this event and send response data back to the requester.
+Besides the actual data and a plugin identifier, a request envelope contains a generated [GUID](http://en.wikipedia.org/wiki/Globally_unique_identifier). This unique identifier is used to map a returned response message to its original request. On the receiver side, *Primus Responder* intercepts messages with a request envelope and emits a `request event. Registered event handlers then react on this event and send response data back to the requester.
 
 #### Response Envelope
 The response data is packaged into a response envelope containing the plugin name again, the response data and the original `requestId`. Notice that the former request identifier is called `responseId` now. That way, *Primus Responder* distinguishs between request and response envelopes.
