@@ -1,5 +1,6 @@
 $compressed: true;
 
+@import "fontawesome/font-awesome";
 @import "_colors";
 @import "_reset";
 @import "_code";
@@ -9,7 +10,7 @@ body {
 	font-family: 'Lora', serif;
 	font-size: 21px;
 	line-height: 1.52;
-	background-color: #f8f8f8;
+	background-color: $backgroundcolor;
 	text-rendering: optimizeLegibility;
 	color: $textcolor;
 }
@@ -146,7 +147,11 @@ body.article-detail > header {
 
 
 
-
+		.picto {
+			text-align: center;
+			font-size: 4.0em;
+			margin: 0;
+		}
 
 
 

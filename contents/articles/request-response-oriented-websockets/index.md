@@ -4,6 +4,7 @@ date: 2013-09-11 08:28
 template: article.jade
 comments: true
 styleClass: violet
+icon: icon-retweet
 ---
 The nature of [websockets](https://developer.mozilla.org/de/docs/WebSockets) allows data transfer between two peers in "*realtime*". This mechanism is perfect for exchanging events without relation to each other. But what if you want to ask your peer for some specific response and wait until this particular response arrives?
 
@@ -63,7 +64,7 @@ primus.on('connection', function(spark) {
 server.listen(8080);
 ```
 
-Demonstrated in the code example above, *Primus Responder* adds two things to *Primus*' core functionality: 
+Demonstrated in the code example above, *Primus Responder* adds two things to *Primus*' core functionality:
 
 * A new event called `request` is emitted as soon as a peer requests a response.
 * The new method named `writeAndWait(data, fn)` writes data to a peer and runs given callback function as the peer sends its response.

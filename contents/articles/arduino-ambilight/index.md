@@ -4,6 +4,7 @@ date: 2012-02-20 18:37
 template: article.jade
 comments: true
 styleClass: blue
+icon: icon-lightbulb
 ---
 
 Insbesondere auf [Instructables](http://www.instructables.com/) stolperte ich in der Vergangenheit über die eine oder andere interessante Elektronik-Bastelei welche einen [Arduino](http://www.arduino.cc/) als Kern verwendete.
@@ -53,6 +54,6 @@ Einen ersten Erfolgreichen Test konnte ich mit dem Mikrocontroller und 2 Metern 
 
 Lernen konnte ich auch bereits etwas Neues: Die LED's sollten und können nicht über den *internen* 5 Volt Pin des Arduino gespiesen werden, auch nicht wenn dieser mit 12 Volt versorgt wird. Zum einen erhalten die Leuchten zuwenig Spannung, zum anderen würde auf dem Controller gemäss Michu zu viel Strom fliessen.
 
-Nun warte ich auf die korrekten 5 Volt Netzteile und freue mich auf eine neue Runde Basteln. 
+Nun warte ich auf die korrekten 5 Volt Netzteile und freue mich auf eine neue Runde Basteln.
 
 Bis dahin gibt es unter [Projects](projects/) eine Zusammenfassung mit [allen wichtigen Informationen](project/arduino-ambilight). Sobald die letzten Teile eingetroffen sind und ich den Aufbau komplettieren konnte, gibt es natürlich noch einen finale Erfahrungsbericht inkl. Fotos & Videos.

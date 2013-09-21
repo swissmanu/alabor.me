@@ -1,4 +1,9 @@
-article {
+.article {
+	h1 {
+		text-align: center;
+		margin-bottom: 1.5em;
+	}
+
 	&.violet {
 		background-color: $violet;
 		color: $lighttextcolor;
@@ -18,9 +23,9 @@ article {
 		background-color: $blue;
 		color: $lighttextcolor;
 		text-shadow: 0 0 3px darken($blue, 20%);
-		
+
 		a {
 			color: $lightlinkcolor;
 		}
-	}	
+	}
 }
