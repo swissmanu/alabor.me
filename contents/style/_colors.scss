@@ -1,4 +1,5 @@
 $backgroundcolor: #f8f8f8;
+$headerbackgroundcolor: #333;
 
 $textcolor: #171717;
 $lighttextcolor: #EEE;
@@ -8,3 +9,21 @@ $lightlinkcolor: #FFF;
 $violet: #48246d;
 $orange: #fd9b46;
 $blue: #24446d;
+
+
+
+::-webkit-input-placeholder {
+   color: darken($lighttextcolor, 50%);
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: darken($lighttextcolor, 50%);
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: darken($lighttextcolor, 50%);
+}
+
+:-ms-input-placeholder {
+   color: darken($lighttextcolor, 50%);
+}

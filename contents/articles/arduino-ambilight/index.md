@@ -10,11 +10,12 @@ icon: icon-lightbulb
 Insbesondere auf [Instructables](http://www.instructables.com/) stolperte ich in der Vergangenheit über die eine oder andere interessante Elektronik-Bastelei welche einen [Arduino](http://www.arduino.cc/) als Kern verwendete.
 
 *Arduino* ist ein kleiner [Mikrocontroller](http://de.wikipedia.org/?search=Mikrocontroller) mit diversen Ein- und Ausgabemöglichkeiten für digitale und analoge Signale. Dabei wird das Stück Hardware komplett von einer Opensource Community entwickelt.
+
+<span class="more"></span>
+
 Unterdessen gibt es den Controller in den verschiedensten Ausführungen. Unter anderen ist sogar eine in Textilien vernähbare Edition erhältlich.
 
 Ganz meiner Passion entsprechend brannte es mich schon länger unter den Fingernägeln, ein eigenes, Arduino-basiertes Projekt durchzuziehen.
-
-<span class="more"></span>
 
 ### Ambilight
 Bei meinem alten Philips Fernseher schätzte ich das eingebaute [Ambilight](http://de.wikipedia.org/?search=Ambilight) als nettes Feature. Dieses erhellte den Bereich *um* den Fernseher mit zum Bild passenden Farben.
