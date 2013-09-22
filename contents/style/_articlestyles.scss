@@ -12,11 +12,19 @@
 		a {
 			color: $lightlinkcolor;
 		}
+
+		p code, li code {
+			background-color: darken($violet, 10%);
+		}
 	}
 
 	&.orange {
 		background-color: $orange;
 		text-shadow: 0 0 1px darken($orange, 20%);
+
+		p code, li code {
+			background-color: darken($orange, 30%);
+		}
 	}
 
 	&.blue {
@@ -26,6 +34,10 @@
 
 		a {
 			color: $lightlinkcolor;
+		}
+
+		p code, li code {
+			background-color: darken($blue, 15%);
 		}
 	}
 }

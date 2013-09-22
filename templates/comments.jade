@@ -5,7 +5,9 @@ mixin comments
 			div.content-wrap
 				| <div id="disqus_thread"></div>
 				| <script type="text/javascript">
-				|   var disqus_shortname = 'alaborme';
+				|   var disqus_shortname = 'alaborme'
+				|       , disqus_url = 'http://alabor.me/#{ page.filename }'
+				|       , disqus_title = '#{ page.metadata.title }';
 				|   (function() {
 				|     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 				|     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';

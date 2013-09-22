@@ -32,7 +32,7 @@ a {
 	color: $linkcolor;
 
 	&:hover {
-		color: #ff8000;
+		color: lighten($linkcolor, 10%);
 		text-decoration: underline;
 	}
 }
