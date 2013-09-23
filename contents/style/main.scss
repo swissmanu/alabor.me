@@ -257,6 +257,19 @@ hr {
 			// Because twitter has element styles on the iFrame, we need important :()
 			margin: 0 auto !important;
 		}
+
+		.jsfiddle {
+			-webkit-overflow-scrolling: touch;
+
+			width: 100%;
+			height: 400px;
+			overflow: scroll;
+
+			iframe {
+				width: 100%;
+				height: 100%;
+			}
+		}
 	}
 }
 

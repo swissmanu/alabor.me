@@ -4,7 +4,6 @@ block append vars
 	- bodyclass = 'home'
 
 block content
-	include author
 	each article in articles
 		article(class="article intro #{ article.metadata.styleClass || '' }")
 			div.content-wrap

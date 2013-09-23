@@ -99,6 +99,6 @@ The response data is packaged into a response envelope containing the plugin nam
 Receiving a response envelope, *Primus Responder* intercepts the message and uses the response identifier to map the response back to the original request. It then executes the response callback originally defined when `writeAndWait(data, fn)` was called.
 
 #### Sequence Diagram
-Find the following sequence diagram for a complete overview (click to enlarge). `PrimusResponderA` and `PrimusResponderB` reflect the two *Primus Responder* instances on client and server.
+Find the following sequence diagram for a complete overview. `PrimusResponderA` and `PrimusResponderB` reflect the two *Primus Responder* instances on client and server.
 
-![Sequence Diagram](sequencediagram.png)
+[![Sequence Diagram](sequencediagram.png)](sequencediagram.png)

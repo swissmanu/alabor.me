@@ -17,7 +17,7 @@ Unfortunately this solution has one big drawback: If data in the models changes,
 Further is this behavior a game breaker if you want to animate the changes inside your chart.
 
 ### Another Approach
-My solution is obviously simple: When observing the change of a model, I don't remove the complete chart anymore. Instead I just take the newest data, inject it with the ``.data()`` method and update all necessary chart components:
+My solution is obviously simple: When observing the change of a model, I don't remove the complete chart anymore. Instead I just take the newest data, inject it with the `.data()` method and update all necessary chart components:
 
 ```javascript
 function updateChart() {
@@ -38,4 +38,6 @@ function updateChart() {
 You find a sample implementation in the following *jsFiddle*. Go straight to *Result* and click *Generate new Values* to see the smooth animated changes in the chart.
 Feel free to play with the parameters or contribute to my raw implementation.
 
-<iframe class="jsfiddle" style="border: 1px solid #EEE; width: 100%; height: 405px" src="http://jsfiddle.net/2UPLp/16/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<div class="jsfiddle">
+	<iframe src="http://jsfiddle.net/2UPLp/16/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+</div>
