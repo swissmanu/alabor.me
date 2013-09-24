@@ -1,18 +1,22 @@
 
 mixin comments
-	- if(page.metadata.comments === true)
+	if page.metadata.comments === true
 		section.comments
 			div.content-wrap
-				| <div id="disqus_thread"></div>
-				| <script type="text/javascript">
-				|   var disqus_shortname = 'alaborme'
-				|       , disqus_url = 'http://alabor.me/#{ page.filename }'
-				|       , disqus_title = '#{ page.metadata.title }';
-				|   (function() {
-				|     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-				|     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-				|     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-				|   })();
-				| </script>
-				| <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-				| <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+				if process.env.DISABLE_ONLINE_SERVICES === undefined
+					| <div id="disqus_thread"></div>
+					| <script type="text/javascript">
+					|   var disqus_shortname = 'alaborme'
+					|       , disqus_url = 'http://alabor.me/#{ page.filename }'
+					|       , disqus_title = '#{ page.metadata.title }';
+					|   (function() {
+					|     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+					|     dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+					|     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+					|   })();
+					| </script>
+					| <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+					| <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+				else
+					p Comments are disabled since the environment variable <code>DISABLE_ONLINE_SERVICES</code> is set
+
