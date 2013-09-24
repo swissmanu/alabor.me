@@ -1,6 +1,6 @@
 var join = require('path').join
 	, fs = require('fs')
-	, stagingRepoPath = join(__dirname, 'build');
+	, buildDirectoryPath = join(__dirname, 'build');
 
 /** File: Gruntfile.js
  * This Grunt task configuration file provides two main tasks:
@@ -8,6 +8,7 @@ var join = require('path').join
  * grunt preview:
  * Starts the wintersmith preview server locally. Ensures that no online
  * services like Google Analytics or Disqus are enabled.
+ * If you just run "grunt", this task is executed automatically.
  *
  * grunt publish:
  * Publishs a latest build of the site to the remote staging repository. The
@@ -83,7 +84,7 @@ module.exports = function(grunt) {
 			 * Executes a "git clone" command on the remote staging directory.
 			 */
 			, cloneFromStaging: {
-				command: 'git clone root@maximus:/home/www/alabor.me/staging build'
+				command: 'git clone root@alabor.me:/home/www/alabor.me/staging build'
 			}
 
 			/** Task: shell:commitToStaging
@@ -112,11 +113,11 @@ module.exports = function(grunt) {
 	});
 
 	/** Task: cloneBuildFromStaging
-	 * Clone the remote stagingn git repository as "build".
+	 * Clone the remote staging git repository as "build".
 	 */
 	grunt.registerTask('cloneBuildFromStaging', function() {
-		if(grunt.file.isDir(join(stagingRepoPath))) {
-			grunt.file.delete(stagingRepoPath);
+		if(grunt.file.isDir(join(buildDirectoryPath))) {
+			grunt.file.delete(buildDirectoryPath);
 		}
 		
 		grunt.task.run('shell:cloneFromStaging');
@@ -127,7 +128,7 @@ module.exports = function(grunt) {
 	 * ".git/" and the ".gitignore" file.
 	 */
 	grunt.registerTask('cleanBuildDirectory', function() {
-		recursiveDirectoryCleaner(stagingRepoPath, ['.git', '.gitignore']);
+		recursiveDirectoryCleaner(buildDirectoryPath, ['.git', '.gitignore']);
 	});
 
 	/** Task: preview
@@ -144,7 +145,12 @@ module.exports = function(grunt) {
 	 * staging repository. The hook over there will probably push the latest
 	 * changes further into live automatically.
 	 */
-	grunt.registerTask('publish', ['cloneBuildFromStaging', 'cleanBuildDirectory', 'shell:build', 'shell:commitToStaging']);
+	grunt.registerTask('publish', [
+		'cloneBuildFromStaging'
+		, 'cleanBuildDirectory'
+		, 'shell:build'
+		, 'shell:commitToStaging'
+	]);
 
 	/** Task: default
 	 * An alias for the task "preview". Runned automatically on just calling
