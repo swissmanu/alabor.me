@@ -1,17 +1,16 @@
 {
-  "name": "alabor.me",
-  "version": "0.0.0",
-  "dependencies": {
-    "moment": "2.x",
-    "underscore": "1.4.x",
-    "typogr": "0.5.x",
-    "wintersmith-sass": "~0.2.1"
-  },
-  "repository": "none",
-  "author": "Manuel Alabor <msites@msites.net>",
-  "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-shell": "~0.4.0",
-    "wintersmith": "~2.0.7"
-  }
+	"name": "alabor.me",
+	"version": "0.0.1",
+	"repository": "https://github.com/swissmanu/alabor.me",
+	"author": "Manuel Alabor <msites@msites.net>",
+	"private": true,
+	"dependencies": {
+		"grunt": "~0.4.1",
+		"grunt-shell": "~0.4.0",
+		"moment": "2.x",
+		"underscore": "1.4.x",
+		"typogr": "0.5.x",
+		"wintersmith": "~2.0.7",
+		"wintersmith-sass": "~0.2.1"
+	}
 }
