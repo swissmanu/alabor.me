@@ -1,0 +1,18 @@
+extends layout
+
+block append vars
+	- bodyclass = 'error-404'
+	- headerclass = 'large'
+
+block content
+	section.article.gray
+		div.content-wrap
+			header
+				p.picto: i.icon-medkit				
+				h2 I am sorry
+
+			section.content
+				p
+					| The page you were looking for was not found.<br/>
+					| Would you like to try a search above?<br/>
+					| You also might consider the <a href="/">home page</a>.

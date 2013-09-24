@@ -1,13 +1,17 @@
 .article {
-	h1 {
-		text-align: center;
-		margin-bottom: 1.5em;
-	}
-
 	&.violet {
 		background-color: $violet;
 		color: $lighttextcolor;
 		text-shadow: 0 0 3px darken($violet, 20%);
+
+		::selection {
+			background: lighten($violet, 40%);
+		}
+		::-moz-selection {
+			background: lighten($violet, 40%);
+		}
+
+
 
 		a {
 			color: $lightlinkcolor;
@@ -25,6 +29,13 @@
 		p code, li code {
 			background-color: darken($orange, 30%);
 		}
+
+		::selection {
+			background: lighten($orange, 10%);
+		}
+		::-moz-selection {
+			background: lighten($orange, 10%);
+		}
 	}
 
 	&.blue {
@@ -38,6 +49,34 @@
 
 		p code, li code {
 			background-color: darken($blue, 15%);
+		}
+
+		::selection {
+			background: lighten($blue, 30%);
+		}
+		::-moz-selection {
+			background: lighten($blue, 30%);
+		}
+	}
+
+	&.gray {
+		background-color: $gray;
+		color: $lighttextcolor;
+		text-shadow: 0 0 3px darken($gray, 20%);
+
+		a {
+			color: $lightlinkcolor;
+		}
+
+		p code, li code {
+			background-color: darken($gray, 15%);
+		}
+
+		::selection {
+			background: lighten($gray, 30%);
+		}
+		::-moz-selection {
+			background: lighten($gray, 30%);
 		}
 	}
 }

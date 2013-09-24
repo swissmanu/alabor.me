@@ -1,6 +1,7 @@
 !!! 5
 block vars
-	- var bodyclass = null;
+	- var bodyclass = null
+	- var headerclass = null
 html(lang='en')
 	head
 		block head
@@ -14,7 +15,7 @@ html(lang='en')
 			link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300')
 			link(rel='stylesheet', href='/style/main.css')
 	body(class=bodyclass)
-		header.header
+		header(class="header #{ headerclass || '' }")
 			div.content-wrap
 				h1: a(href="/") alabor.me
 				form(method="get", action="https://www.google.com/cse/publicurl")
