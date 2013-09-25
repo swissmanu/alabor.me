@@ -14,11 +14,11 @@ var join = require('path').join
  * Publishs a latest build of the site to the remote staging repository. The
  * remote will most probably automatically push these changes to the live
  * repo.
- * Ensure to add a "maximus" alias to your ~/.ssh/config like the one below
+ * Ensure to add a "alabor.me" alias to your ~/.ssh/config like the one below
  * since the grunt task does not include any ssh user information when cloning
  * the staging repo.
  *
- *  > host maximus
+ *  > host alabor.me
  *  > hostname alabor.me
  *  > user superfancygituser
  */
@@ -89,7 +89,7 @@ module.exports = function(grunt) {
 			 * Executes a "git clone" command on the remote staging directory.
 			 */
 			, cloneFromStaging: {
-				command: 'git clone maximus:/home/www/alabor.me/staging build'
+				command: 'git clone alabor.me:alabor.me-staging.git build'
 			}
 
 			/** Task: shell:commitToStaging
