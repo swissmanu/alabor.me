@@ -28,7 +28,7 @@ All you need is a computer with an internet connection running Ubuntu 12.04 and 
 First of all, make sure you have the latest version of `bluez` and `blueman`. Hit the command line and run:
 
 ```bash
-$ sudo apt-get bluez blueman```
+$ sudo apt-get install bluez blueman```
 
 Now run `bluetoothd --version` and write down the version of Bluez. In the time of writing this article, version `4.98` is the latest for Ubuntu 12.04.
 
