@@ -4,7 +4,7 @@ var join = require('path').join
 
 /** File: Gruntfile.js
  * This Grunt task configuration file provides two main tasks:
- * 
+ *
  * grunt preview:
  * Starts the wintersmith preview server locally. Ensures that no online
  * services like Google Analytics or Disqus are enabled.
@@ -89,7 +89,7 @@ module.exports = function(grunt) {
 			 * Executes a "git clone" command on the remote staging directory.
 			 */
 			, cloneFromStaging: {
-				command: 'git clone alabor.me:alabor.me-staging.git build'
+				command: 'git clone alabor.me:/home/git/alabor.me-staging.git build'
 			}
 
 			/** Task: shell:commitToStaging
@@ -124,7 +124,7 @@ module.exports = function(grunt) {
 		if(grunt.file.isDir(join(buildDirectoryPath))) {
 			grunt.file.delete(buildDirectoryPath);
 		}
-		
+
 		grunt.task.run('shell:cloneFromStaging');
 	});
 
