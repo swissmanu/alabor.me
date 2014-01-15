@@ -224,3 +224,7 @@ This flaw can be resolved by simply telling the Harmony that you want to keep th
 I dumped this guide after a few days of research and hacking. All key parts are there and you should be able to setup your system with it.
 
 Even though, I kindly request you to report any problems you may encounter and to contribute for a better experience for the rest of the community. Thanks! :)
+
+### Sources
+* [http://wiki.xbmc.org/index.php?title=HOW-TO:Setup_PS3_BD_Remote](http://wiki.xbmc.org/index.php?title=HOW-TO:Setup_PS3_BD_Remote)
+* [http://forum.xbmc.org/showthread.php?tid=50717&pid=1515224#pid1515224](http://forum.xbmc.org/showthread.php?tid=50717&pid=1515224#pid1515224)
