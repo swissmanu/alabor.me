@@ -8,9 +8,9 @@ icon: icon-fast-forward
 ---
 The [Plex Media Server](https://plex.tv/) provides an awesome feature set for managing and enjoy media in the living room. [Plex Home Theater](http://elan.plexapp.com/2013/11/23/plex-home-theater-1-0-released/) is a beautiful client available on all major operation systems and allows access to the complete media library through a fancy UI.
 
-I love the programmable Harmony universal remote controls by Logitech. When building up my movie and game room recently, it was no question for me to use one of them to control my device zoo.
+I love the programmable Harmony universal remotes by Logitech. When building up my movie and game room recently, it was no question for me to use one of them to control my device zoo.
 
-Since the [latest revision](http://www.logitech.com/en-gb/product/harmony-smart-control?crid=60) of the Logitechs remote control can talk to the PlayStation 3 and the Wii U over bluetooth, I was sure, it should be possible to control Plex Home Theater on my Ubuntu box too.
+Since the [latest revision](http://www.logitech.com/en-gb/product/harmony-smart-control?crid=60) of Logitechs remotes can talk to the PlayStation 3 and the Wii U over bluetooth, I was sure, it should be possible to control Plex Home Theater on my Ubuntu box too.
 
 <span class="more"></span>
 
@@ -121,7 +121,7 @@ Again, use your favorite text editor and open `/etc/bluetooth/input.conf`:
 ```bash
 $ sudo vim /etc/bluetooth/input.conf```
 
-I guess this is the first time you edit this file, so just copy-and-paste the following lines below. Make sure you replace `00:11:22:BB:AA:CC` with the physical address of your own hub (remember above?).
+I guess this is the first time you edit this file, so just replace the existing content with the following lines below. Make sure you replace `00:11:22:BB:AA:CC` with the physical address of your own hub (remember above?).
 
 ```
 # Configuration file for the input service
@@ -217,13 +217,13 @@ Open the file browser and use the remotes directional buttons to select files. I
 ### Tuning
 Your Harmony treats your Ubuntu box as a PlayStation 3. This is fine since we want to use the PS3s remote commands to control Plex Home Theater. On the other hand the Harmony tries to start and shutdown your computer like a PS3 too. This could end up in some funny behaviours.
 
-This flaw can be resolved by simply telling the Harmony that you want to keep the fake PlayStation *on* at any time.
+This flaw can be resolved by simply telling the Harmony that you want to keep the faked PlayStation *on* at any time.
 
 
 ### Improve & Contribute
 I dumped this guide after a few days of research and hacking. All key parts are there and you should be able to setup your system with it.
 
-Even though, I kindly request you to report any problems you may encounter and to contribute for a better experience for the rest of the community. Thanks! :)
+Even though, I kindly request you to report any problems you may encounter and to contribute for an even better experience for the rest of the community. Thanks! :)
 
 ### Sources
 * [http://wiki.xbmc.org/index.php?title=HOW-TO:Setup_PS3_BD_Remote](http://wiki.xbmc.org/index.php?title=HOW-TO:Setup_PS3_BD_Remote)
