@@ -26,11 +26,21 @@ nav {
     align-items: center;
 }
 
+nav:not(.show) .avatar {
+    animation: pulse 4s infinite 2s;
+}
+
 .avatar {
     border-radius: 50%;
     width: 128px;
     height: 128px;
     z-index: 1;
+    cursor: pointer;
+    transition: 400ms cubic-bezier(0.785, 0.135, 0.150, 0.860);
+}
+
+nav.show .avatar, .avatar:hover, .bubble:hover {
+    transform: scale(1.05);
 }
 
 .bubble {
@@ -49,9 +59,9 @@ nav {
     align-items: center;
 
     border-radius: 50%;
-    background-color: tomato;
+    background-color: rgba(219, 226, 234, .4);
 
-    transition: 300ms cubic-bezier(0.785, 0.135, 0.150, 0.860);
+    transition: 400ms cubic-bezier(0.785, 0.135, 0.150, 0.860);
 }
 
 .bubble a {
@@ -61,16 +71,16 @@ nav {
     text-align: center;
 }
 
-.bubble-tank.show .bubble {
+nav.show .bubble {
     opacity: 1;
     visibility: visible;
 }
 
-.bubble-tank.show .bubble:nth-of-type(1) {
+nav.show .bubble:nth-of-type(1) {
     transform: rotate(135deg) translate(85px) rotate(-135deg);
 }
 
-.bubble-tank.show .bubble:nth-of-type(2) {
+nav.show .bubble:nth-of-type(2) {
     transform: rotate(45deg) translate(85px) rotate(-45deg);
 }
 
@@ -80,4 +90,16 @@ nav {
     height: 100%;
     top: 0;
     left: 0;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(219, 226, 234, 0.4);
+  }
+  70% {
+      box-shadow: 0 0 0 30px rgba(219, 226, 234, 0);
+  }
+  100% {
+      box-shadow: 0 0 0 0 rgba(219, 226, 234, 0);
+  }
 }
