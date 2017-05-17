@@ -3,17 +3,29 @@
 <head>
       <link rel="stylesheet" type="text/css" href="stylesheet.css">
 </head>
-<body>
-    <nav>
-        <img class="avatar" onclick="document.getElementsByTagName('nav')[0].classList.toggle('show');" src="https://secure.gravatar.com/avatar/c36915ec92a666d930c1e91e2c3ba6a4?s=140" />
-        <ul class="bubble-tank">
-            <li class="bubble">
-                <a href="https://github.com/swissmanu">G</a>
-            </li>
-            <li class="bubble">
-                <a href="https://www.linkedin.com/in/manuelalabor">L</a>
-            </li>
-        </ul>
-    </nav>
+<body itemscope itemtype="http://schema.org/Person">
+        <nav>
+            <img class="avatar" onclick="document.getElementsByTagName('nav')[0].classList.toggle('show');" src="https://secure.gravatar.com/avatar/c36915ec92a666d930c1e91e2c3ba6a4?s=140" />
+            <ul class="bubble-tank">
+                <li class="bubble github">
+                    <a href="https://github.com/swissmanu" title="Github" rel="me">
+                        <i class="icon-github" /></i>
+                    </a>
+                </li>
+                <li class="bubble twitter">
+                    <a href="https://www.twitter.com/swissmanu" title="Twitter" rel="me">
+                        <i class="icon-twitter"></i>
+                    </a>
+                </li>
+                <li class="bubble linkedin">
+                    <a href="https://www.linkedin.com/in/manuelalabor" title="LinkedIn" rel="me">
+                        <i class="icon-linkedin"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <header>
+            <h1><span itemprop="givenName">Manuel</span> <span itemprop="familyName">Alabor</span></h1>
+        </header>
 </body>
 </html>
