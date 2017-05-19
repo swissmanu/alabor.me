@@ -89,20 +89,23 @@ h1::after {
     transform-origin: bottom center;
 }
 
-.bubble:hover a {
-    animation: pulse 4s infinite;
+.bubble:hover a,
+.bubble:active a {
     transform: scale(1.02);
 }
 
-.bubble.github:hover a {
+.bubble.github:hover a,
+.bubble.github:active a {
     color: #000;
 }
 
-.bubble.twitter:hover a {
+.bubble.twitter:hover a,
+.bubble.twitter:active a {
     color: rgba(29, 161, 242, 1.0);
 }
 
-.bubble.linkedin:hover a {
+.bubble.linkedin:hover a,
+.bubble.linkedin:active a {
     color: rgba(0, 119, 181, 1.0);
 }
 
