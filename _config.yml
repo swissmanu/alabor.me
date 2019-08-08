@@ -1,0 +1,8 @@
+# Site settings
+title: alabor.me
+
+# Build settings
+markdown: kramdown
+highlighter: rogue
+sass:
+  style: compressed
