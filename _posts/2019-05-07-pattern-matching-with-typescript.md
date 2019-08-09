@@ -1,6 +1,7 @@
 ---
+layout: post
 title: Pattern Matching with TypeScript
-titleImage: title-pattern-matching-with-typescript.png
+titleImage: /assets/title-pattern-matching-with-typescript.png
 ---
 
 [TypeScript](https://www.typescriptlang.org/index.html) does not have any pattern matching functionality built in. This article shows several ways how you can replicate the core of a simple pattern matcher using a few simple structures and functions within TypeScript.
