@@ -58,6 +58,8 @@ PLATFORMS
 
 DEPENDENCIES
   jekyll (~> 3.8)
+  kramdown (~> 1.17)
+  rouge (~> 3.8)
 
 BUNDLED WITH
    2.0.2
