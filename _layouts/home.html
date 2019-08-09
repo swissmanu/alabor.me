@@ -1,48 +1,48 @@
 ---
 layout: page
 ---
-<div itemscope itemtype="http://schema.org/Person">
-    <section class="vcard">
-        <header>
-            <img class="avatar" src="https://secure.gravatar.com/avatar/c36915ec92a666d930c1e91e2c3ba6a4?s=140" />
-            <h1><span itemprop="givenName">Manuel</span> <span itemprop="familyName">Alabor</span></h1>
-        </header>
-        <nav>
-            <ul>
-                <li class="bubble github">
-                    <a href="https://github.com/swissmanu" title="Github" rel="me">
-                    <i class="icon-github" /></i>
-                </a>
-                </li>
-                <li class="bubble twitter">
-                    <a href="https://www.twitter.com/swissmanu" title="Twitter" rel="me">
-                    <i class="icon-twitter"></i>
-                </a>
-                </li>
-                <li class="bubble linkedin">
-                    <a href="https://www.linkedin.com/in/manuelalabor" title="LinkedIn" rel="me">
-                    <i class="icon-linkedin"></i>
-                </a>
-                </li>
-            </ul>
-        </nav>
-    </section>
-    {%- if site.posts.size > 0 -%}
-    <section class="publications">
-        <header>
-            <h2>Published Articles</h2>
-        </header>
-        <nav>
-            <ul>
-                {%- for post in site.posts -%}
-                <li>
-                    <a href="{{ post.url | relative_url}}">
-                        Pattern Matching with TypeScript
-                    </a>
-                </li>
-                {%- endfor -%}
-            </ul>
-        </nav>
-    </section>
-    {%- endif -%}
+<div class="home" itemscope itemtype="http://schema.org/Person">
+  <section class="vcard">
+    <header>
+      <img class="avatar" src="https://secure.gravatar.com/avatar/c36915ec92a666d930c1e91e2c3ba6a4?s=140" />
+      <h1><span itemprop="givenName">Manuel</span> <span itemprop="familyName">Alabor</span></h1>
+    </header>
+    <nav>
+      <ul>
+        <li class="bubble github">
+          <a href="https://github.com/swissmanu" title="Github" rel="me">
+            <i class="icon-github" /></i>
+          </a>
+        </li>
+        <li class="bubble twitter">
+          <a href="https://www.twitter.com/swissmanu" title="Twitter" rel="me">
+            <i class="icon-twitter"></i>
+          </a>
+        </li>
+        <li class="bubble linkedin">
+          <a href="https://www.linkedin.com/in/manuelalabor" title="LinkedIn" rel="me">
+            <i class="icon-linkedin"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </section>
+  {%- if site.posts.size > 0 -%}
+  <section class="publications">
+    <header>
+      <h2>Published Articles</h2>
+    </header>
+    <nav>
+      <ul>
+        {%- for post in site.posts -%}
+        <li>
+          <a href="{{ post.url | relative_url}}">
+            {{ post.title }}
+          </a>
+        </li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+  </section>
+  {%- endif -%}
 </div>

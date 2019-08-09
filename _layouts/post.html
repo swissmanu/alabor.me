@@ -2,8 +2,12 @@
 layout: page
 ---
 <article>
-    <header>
-            <h2>{{ page.title }}</h2>
-    </header>
-    {{ content }}
+  <header>
+    {%- if page.titleImage -%}
+    <img src="{{ page.titleImage }}" alt="{{ page.title }}" />
+    {%- endif -%}
+    <h2>{{ page.title }}</h2>
+    <span class="author">by <a href="/" rel="author" title="Author">Manuel Alabor</a></span>
+  </header>
+  {{ content }}
 </article>
