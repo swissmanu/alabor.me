@@ -8,6 +8,9 @@ body {
   background-color: #fdfdfd;
 }
 
-@import 'iconfont';
-@import 'rogue-github';
-@import 'home';
+@import
+  'normalize',
+  'iconfont',
+  'rogue-github',
+
+  'home';
