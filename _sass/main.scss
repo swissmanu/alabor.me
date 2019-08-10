@@ -1,16 +1,8 @@
-html,
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
-  color: #111;
-  background-color: #fdfdfd;
-}
-
 @import
-  'normalize',
-  'iconfont',
-  'rogue-github',
+  'base/normalize',
+  'base/solo',
+  'base/rogue-github',
+  'base/iconfont',
 
-  'home';
+  'home',
+  'post';
