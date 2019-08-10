@@ -1,0 +1,10 @@
+# Site settings
+title: Manuel Alabor
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+sass:
+  style: compressed
+
+# GA ID: UA-133824096-1
