@@ -10,7 +10,7 @@ body {
 }
 
 .main {
-  padding-top: 50px;
+  padding-top: 20px;
   padding-bottom: 40px;
 }
 
@@ -25,17 +25,35 @@ body {
   padding-bottom: 40px;
 }
 
+.shaded a {
+  color: #727272;
+}
+
+.shaded a:hover, .shaded:active {
+  color: #4e4e4e;
+}
+
 header {
   background: black;
   color: white;
   text-align: center;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 2vw));
-  padding-top: 80px;
-  padding-bottom: 60px;
+  padding-top: 60px;
+  padding-bottom: 40px;
 }
 
 header img {
   width: 96px;
+}
+
+figure {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+figure .showcase {
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 li {

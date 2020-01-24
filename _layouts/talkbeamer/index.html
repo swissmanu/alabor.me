@@ -5,11 +5,16 @@
     <title>TalkBeamer</title>
     <meta
       name="description"
-      content="Use TalkBeamer to present the slides you created using the LaTeX Beamer
-    template from your iPad or iPhone."
+      content="TalkBeamer is an iOS app to present the slides you created using the LaTeX Beamer
+    template from your iPad or iPhone to an external display."
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" id="favicon">
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="images/favicon.ico"
+      id="favicon"
+    />
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/main.css" />
     <meta name="theme-color" content="#fafafa" />
@@ -18,16 +23,23 @@
   <body>
     <header>
       <div class="centered">
-        <img class="icon" src="images/icon.png" />
+        <img class="icon" src="images/icon.png" alt="TalkBeamer App Icon" />
         <h1>TalkBeamer</h1>
       </div>
     </header>
 
     <section class="centered main">
-      <a
-        href="https://apps.apple.com/se/app/altoo/id1361144717?mt=8"
-        style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?releaseDate=2018-11-08&kind=iossoftware&bubble=ios_apps) no-repeat;width:135px;height:40px;"
-      ></a>
+      <figure>
+        <img
+          src="images/talkbeamer-showcase.png"
+          alt="TalkBeamer used to show Slides on a TV"
+          class="showcase"
+        />
+        <a
+          href="https://apps.apple.com/se/app/altoo/id1361144717?mt=8"
+          style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?releaseDate=2018-11-08&kind=iossoftware&bubble=ios_apps) no-repeat;width:135px;height:40px;"
+        ></a>
+      </figure>
 
       <p>
         Use TalkBeamer to present the slides you created using the LaTeX Beamer
@@ -69,21 +81,22 @@
       <section class="centered additional">
         <h2>What is LaTeX? What is LaTex Beamer?</h2>
         <p>
-          <a href="https://www.latex-project.org/">LaTeX</a> is a software
-          package to author various documents like scientific reports, magazine
-          articles or even books.
+          <a href="https://www.latex-project.org/" target="_blank">LaTeX</a> is
+          a software package to author various documents like scientific
+          reports, magazine articles or even books.
         </p>
         <p>
           In combination with the
-          <a href="https://www.ctan.org/pkg/beamer">Beamer template</a>, LaTeX's
-          powerful feature set can be used for the creation of slide sets for
-          talks and presentations. When included, exported PDF files contain the
-          actual slide as well as notes for helping the speaker.
+          <a href="https://www.ctan.org/pkg/beamer" target="_blank"
+            >Beamer template</a
+          >, LaTeX's powerful feature set can be used for the creation of slide
+          sets for talks and presentations. When included, exported PDF files
+          contain the actual slide as well as notes for helping the speaker.
         </p>
       </section>
 
       <footer class="centered">
-        &copy; Copyright 2020 by Manuel Alabor.
+        &copy; Copyright 2020 by <a href="https://alabor.me">Manuel Alabor</a>.
       </footer>
     </div>
     {%- include google-analytics.html -%}
