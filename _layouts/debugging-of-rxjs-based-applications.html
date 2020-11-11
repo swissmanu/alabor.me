@@ -1,0 +1,49 @@
+---
+layout: page
+---
+
+<article class="post rxjs-debugging">
+  <header>
+    <figure>
+      <div id="pattern">
+        <div id="lens"></div>
+      </div>
+      <figcaption>The correct lens for RxJS Debugging?</figcaption>
+    </figure>
+
+
+    <h2>{{ page.title }}</h2>
+    <span class="author"
+      >by <a href="/" rel="author" title="Author">Manuel Alabor</a></span
+    >
+  </header>
+  {{ content }}
+</article>
+
+<script>
+  const lens = document.querySelector("#lens");
+  const pattern = document.querySelector("#pattern");
+
+  console.log(pattern);
+
+  if (lens && pattern) {
+    pattern.addEventListener("mousemove", (e) => {
+      const lensSize = lens.clientWidth;
+      const x = e.clientX - pattern.offsetLeft;
+      const y = e.clientY - pattern.offsetTop;
+
+      lens.style.left = `${x - lensSize / 2}px`;
+      lens.style.top = `${y - lensSize / 2}px`;
+    });
+
+    pattern.addEventListener(
+      "mouseleave",
+      (e) => {
+        e.stopPropagation();
+        lens.style.left = `30%`;
+        lens.style.top = `60%`;
+      },
+      { capture: true }
+    );
+  }
+</script>

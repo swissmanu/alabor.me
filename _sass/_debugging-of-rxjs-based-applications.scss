@@ -1,0 +1,38 @@
+.rxjs-debugging {
+  header {
+    #pattern {
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+      width: 14rem;
+      height: 14rem;
+      margin-bottom: 0.4rem;
+      background-image: url(/assets/rxjs-red-reveal-pattern.svg);
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      clip-path: circle(50% at center);
+      cursor: none;
+    }
+
+    #lens {
+      position: absolute;
+      left: 30%;
+      top: 60%;
+      width: 40%;
+      height: 40%;
+      border-radius: 100px;
+      border: 3px solid red;
+      background-color: rgba(255, 0, 0, 0.75);
+      mix-blend-mode: overlay;
+      transition-property: left, top;
+      transition-duration: 75ms;
+    }
+  }
+}
+
+@media (min-width: 30rem) {
+  .rxjs-debugging header #pattern {
+    width: 18rem;
+    height: 18rem;
+  }
+}

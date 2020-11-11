@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      id="pattern"
+      style="
+        width: 400px;
+        height: 400px;
+        position: relative;
+        overflow: hidden;
+        cursor: none;
+        background-image: url(./rxjs-red-reveal-pattern-2.svg);
+        background-repeat: none;
+        background-size: 100% 100%;
+        clip-path: circle(50% at center);
+      "
+    >
+      <div
+        id="lens"
+        style="
+          position: absolute;
+          left: 30%;
+          top: 60%;
+          width: 40%;
+          height: 40%;
+          border-radius: 100px;
+          border: 3px solid red;
+          background-color: rgba(255, 0, 0, 0.75);
+          mix-blend-mode: overlay;
+          transition-property: left, top;
+          transition-duration: 75ms;
+        "
+      />
+    </div>
+
+    <script>
+      const lens = document.querySelector("#lens");
+      const pattern = document.querySelector("#pattern");
+
+      if (lens && pattern) {
+        const lensSize = lens.clientWidth;
+        pattern.addEventListener(
+          "mousemove",
+          (e) => {
+            console.log(e)
+            e.stopPropagation();
+            e.preventDefault();
+            lens.style.left = `${e.offsetX - lensSize / 2}px`;
+            lens.style.top = `${e.offsetY - lensSize / 2}px`;
+          },
+          { capture: true }
+        );
+        // pattern.addEventListener(
+        //   "mouseleave",
+        //   () => {
+        //     e.stopPropagation();
+        //     e.preventDefault();
+        //     lens.style.left = `30%`;
+        //     lens.style.top = `60%`;
+        //   },
+        //   { capture: true }
+        // );
+      }
+    </script>
+  </body>
+</html>
