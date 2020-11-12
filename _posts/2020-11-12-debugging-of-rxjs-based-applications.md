@@ -5,7 +5,7 @@ title: Debugging of RxJS-Based Applications
 
 ## Motivation
 
-I spent a lot of time working with [TypeScript](https://www.typescriptlang.org/), [React](https://reactjs.org/) and [RxJS](https://rxjs.dev/) professionally for the past few years. As powerful as RxJS is, I always felt kind of "lost" when I had to debug more complex source code. Built to work with imperative programming paradigms, traditional debuggers, available in IDEs or a browsers developer tools, give a very specific view on the program execution. They lack a "lens" exposing the inner workings of the reactive programming runtime environment in a suitable way. For me, debugging often boiled down to good-old trace log statements:
+I spent a lot of time working with [TypeScript](https://www.typescriptlang.org/), [React](https://reactjs.org/) and [RxJS](https://rxjs.dev/) professionally for the past few years. As powerful as RxJS is, I always felt kind of "blind" when I had to debug more complex source code. Built to work with imperative programming paradigms, traditional debuggers in IDEs and browser developer tools give a very specific view on program execution. They lack a "lens" exposing the inner workings of the reactive programming runtime environment in a suitable way. For me, debugging often boiled down to good-old trace log statements:
 
 ```typescript
 userInput.pipe(
@@ -22,7 +22,7 @@ Even though I explored more sophisticated logging utilities (e.g., [rxjs-spy](ht
 
 ## Progress
 
-I started with my studies for a master's degree in computer science back in 2019. My study advisor [Markus Stolze](https://twitter.com/markusstolze) allowed me to focus my academic research on the topic of debugging for reactive programming. The first iteration of my work on "Debugging of RxJS-Based Applications" is available now as part of the proceedings to the ["7th Workshop on Reactive and Event-based Languages & Systems"](https://2020.splashcon.org/home/rebls-2020) held at [SPLASH 2020](https://2020.splashcon.org/).
+I started with my studies for a master's degree in computer science back in 2019. My study advisor [Markus Stolze](https://twitter.com/markusstolze) allowed me to focus my academic research on the topic of debugging for reactive programming. The first iteration of my work on "Debugging of RxJS-Based Applications" is available now as part of the proceedings to this years ["7th Workshop on Reactive and Event-based Languages & Systems"](https://2020.splashcon.org/home/rebls-2020) held at [SPLASH 2020](https://2020.splashcon.org/).
 
 The abstract (right after), as well as the [full paper is available to download for everyone](/assets/splashws20reblsmain-p3-p-2b9e349-48142-final.pdf).
 
