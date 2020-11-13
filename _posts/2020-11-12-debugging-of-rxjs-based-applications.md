@@ -5,20 +5,19 @@ title: Debugging of RxJS-Based Applications
 
 ## Motivation
 
-I spent a lot of time working with [TypeScript](https://www.typescriptlang.org/), [React](https://reactjs.org/) and [RxJS](https://rxjs.dev/) professionally for the past few years. As powerful as RxJS is, I always felt kind of "blind" when I had to debug more complex source code. Built to work with imperative programming paradigms, traditional debuggers in IDEs and browser developer tools give a very specific view on program execution. They lack a "lens" exposing the inner workings of the reactive programming runtime environment in a suitable way. For me, debugging often boiled down to good-old trace log statements:
+I spent a lot of time working with [TypeScript](https://www.typescriptlang.org/), [React](https://reactjs.org/) and [RxJS](https://rxjs.dev/) professionally for the past few years. As powerful as RxJS is, I always felt kind of "blind" when I had to debug more complex source code. Built to work with imperative programming paradigms, traditional debuggers in IDEs and browser developer tools give a very specific view on program execution. They lack a matching "filter" to expose the inner workings of the reactive programming runtime environment in a suitable way. For me, debugging often boiled down to good-old trace log statements:
 
 ```typescript
 userInput.pipe(
-  startWith({ value: 'foobar' }),
-  tap((x) => console.log(x)) // <- 😔
-  flatMap(x => request(x)),
-  tap((x) => console.log(x)) // <- 😔
-  filter(x => x.ok)
+  startWith({ value: "foobar" }),
+  tap((x) => console.log(x)), // <- 😔
+  flatMap((x) => request(x)),
+  tap((x) => console.log(x)), // <- 😔
+  filter((x) => x.ok)
 );
 ```
 
 Even though I explored more sophisticated logging utilities (e.g., [rxjs-spy](https://github.com/cartant/rxjs-spy)) over time, debugging was still a matter of interpreting a flood of trace logs in the console. I felt frustrated with the state of debugging tools available for RxJS eventually.
-
 
 ## Progress
 
