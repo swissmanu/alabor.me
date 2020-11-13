@@ -6,11 +6,10 @@ layout: page
   <header>
     <figure>
       <div id="pattern">
-        <div id="lens"></div>
+        <div id="lens" class="idle"></div>
       </div>
       <figcaption>See through RxJS Debugging.</figcaption>
     </figure>
-
 
     <h2>{{ page.title }}</h2>
     <span class="author"
@@ -25,6 +24,10 @@ layout: page
   const pattern = document.querySelector("#pattern");
 
   if (lens && pattern) {
+    pattern.addEventListener("mouseenter", () => {
+      lens.classList.remove("idle")
+    });
+
     pattern.addEventListener("mousemove", (e) => {
       const lensSize = lens.clientWidth;
       const x = e.clientX - pattern.offsetLeft;
