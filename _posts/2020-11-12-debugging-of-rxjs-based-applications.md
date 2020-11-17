@@ -29,7 +29,7 @@ The abstract (right after), as well as the [full paper is available to download 
 
 ## Reference Format
 
-> Manuel Alabor and Markus Stolze. 2020. Debugging of RxJS-Based Applications. In Proceedings of the 7th ACM SIGPLAN International Workshop on Reactive and Event-Based Languages and Systems (REBLS ’20), November 16, 2020, Virtual, USA. ACM, New York, NY, USA, 10 pages. [https://doi.org/10.1145/3427763.3428313](https://doi.org/10.1145/3427763.3428313)
+> Manuel Alabor and Markus Stolze. 2020. Debugging of RxJS-Based Applications. In Proceedings of the 7th ACM SIGPLAN International Workshop on Reactive and Event-Based Languages and Systems (REBLS ’20), November 16, 2020, Virtual, USA. ACM, New York, NY, USA, 10 pages. [https://dl.acm.org/doi/10.1145/3427763.3428313](https://dl.acm.org/doi/10.1145/3427763.3428313)
 
 ## Research Material
 
