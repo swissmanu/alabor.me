@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Manuel Alabor" />
+    <meta name="citation_author" content="Manuel Alabor" />
+    <meta name="citation_author_email" content="manuel.alabor@ost.ch" />
+    <meta
+      name="citation_author_institution"
+      content="Eastern Switzerland University of Applied Sciences"
+    />
+    <meta name="citation_date" content="2020-12" />
+    <meta name="citation_language" content="en" />
+    <meta
+      name="citation_keywords"
+      content="reactive programming;debugging;empirical software engineering;usability;user experience"
+    />
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <title>User Journey: Debugging of RxJS-Based Applications</title>
+    {%- include google-analytics.html -%}
+  </head>
+
+  <body class="container mx-auto mb-12">
+    <header class="mt-12 w-1/2 m-auto">
+      <h1 class="mb-1 text-3xl font-bold">
+        User Journey: Debugging of RxJS-Based Applications
+      </h1>
+      <aside class="mb-4 text-sm text-gray-500">
+        Manuel Alabor<br />Eastern Switzerland University of Applied Sciences<br />
+        <a href="mailto:manuel.alabor@ost.ch">manuel.alabor@ost.ch</a>
+      </aside>
+
+      <p class="mb-2">
+        This document describes two user journeys of Frank Flow, a software
+        engineer working on an application implemented using RxJS. The
+        application has a web-based user interface and was part of a study by
+        Alabor et al. <a href="#1">[1]</a>. Frank will use different debugging
+        techniques and utilities to solve the task given to him. The journeys
+        follow the debugging process model proposed by Layman et al.
+        <a href="#2">[2]</a>.
+      </p>
+
+      <h2 class="mt-4 mb-1 text-xl font-medium">Actor</h2>
+      <p class="mb-2">
+        Frank Flow started to work for ReactiBank 2 years ago as a frontend
+        software engineer. As part of a small, interdisciplinary team of 7
+        people, Frank' and his team are responsible for developing and
+        maintaining a trading application. This application relies heavily on
+        real-time data, so the group decided to use reactive programming
+        principles throughout the application. Frank knows traditional
+        programming paradigms and the related debugging tools from his studies
+        and personal experiences. He built up knowledge on RP and RxJS for the
+        frontend part of their application after joining the team quickly,
+        however.
+      </p>
+      <p class="mb-2">
+        Today, Frank uses RxJS efficiently to build new features. He can solve
+        simple problems reported by the product owner on his own. Working on
+        more complicated issues is still something Frank struggles with: He
+        often feels like his knowledge of traditional programming techniques and
+        its debugging utilities are not enough. These tools feel "out of place"
+        to him. All to often, they do not provide any helpful insights and turn
+        out to be time-sink. Frank does not like that, eventually, he has to
+        consult one of his colleagues who have experience in RxJS for a longer
+        time.
+      </p>
+
+      <h2 class="mt-4 mb-1 text-xl font-medium">Context</h2>
+      <p class="mb-2">
+        Frank participates in a study about RxJS-specific debugging techniques.
+        He is asked to work on an application allowing a user to change and
+        display a value. The user can achieve a change of the value either by
+        two buttons to increase and decrease a numeric value or by entering an
+        arbitrary text in an input field. The two buttons get disabled once a
+        text is entered. There is a third button labeled "Reset", which clears
+        all user input and reverts the application to its initial state.
+      </p>
+
+      <h2 class="mt-4 mb-1 text-xl font-medium">Goal</h2>
+      <p class="mb-2">
+        Frank receives a bug report for the application: Once a user had clicked
+        the reset button, the application started to behave strangely by showing
+        multiple values in quick succession when the increase or decrease button
+        was clicked. It is Franks task to analyse the bug and find a solution.
+      </p>
+    </header>
+
+    <main class="grid grid-cols-2">
+      <div class="col-span-2 mb-6 flex flex-column justify-center">
+        <div class="w-1/2">
+          <h2 class="mt-4 mb-1 text-xl font-medium">User Journey</h2>
+          <p class="mb-2">
+            Beginning from the same point, we are going to present two distinct
+            user journeys in which Frank uses different tools to achieve his
+            goal:
+          </p>
+          <ol class="my-4">
+            <li class="mb-1">
+              <span class="font-medium bg-red-100 py-1 px-2 rounded"
+                >Branch A</span
+              >
+              on the left describes a debugging session using traditional
+              debugging techniques and practices as described by Alabor et al.
+              <a href="#1">[1]</a>. Frank will use imperative debugging
+              utilities built-in to Visual Studio Code and manual code
+              modification to reach his goal.
+            </li>
+            <li>
+              <span class="font-medium bg-blue-100 py-1 px-2 rounded"
+                >Branch B</span
+              >
+              on the right describes how Frank uses the prototype of an
+              extension for Visual Studio Code providing a less invasive
+              debugging technique for RxJS-based source code.
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="col-span-2 flex justify-center">
+        <div
+          class="w-1/2 p-6 rounded-t-lg transition bg-gray-100 flex flex-col place-content-between"
+          data-journey="both"
+        >
+          <div>
+            <h3 class="mb-3 text-lg font-medium">
+              <span class="font-light text-gray-500">Step 1</span> Build
+              Hypothesis
+            </h3>
+            <p class="mb-2">
+              After Frank recreated the behavior reported in the bug report, he
+              starts analyzing the source code of the application. In this
+              process, he formulates his first hypothesis about what could cause
+              the unexpected behavior: Frank suspects the
+              <code>flatMap</code> operator in Line 19 to be responsible.
+            </p>
+            <p class="mb-2">
+              Frank wants to have a closer look on the operators runtime
+              behavior, which is why he decides to use debugging utilities.
+            </p>
+          </div>
+          <img class="mt-3" src="./screenshots/traditional-01.png" />
+        </div>
+      </div>
+
+      <div
+        class="p-6 rounded-tl-lg transition bg-red-100 flex flex-col place-content-between"
+        data-journey="a"
+      >
+        <div>
+          <h3 class="mb-3 text-lg font-medium">
+            <span class="font-light text-gray-500">Step 2.A</span> Instrument
+            Hypothesis
+          </h3>
+          <p class="mb-2">
+            Using the built-in debugger of Visual Studio Code, Frank adds a
+            breakpoint to Line 19 where the
+            <code>flatMap</code> operator is called with the intention to stop
+            the program execution every time a values "flows" through the
+            operator.
+          </p>
+        </div>
+        <img class="mt-3" src="./screenshots/traditional-02.png" />
+      </div>
+      <div
+        class="p-6 rounded-tr-lg transition bg-blue-100 flex flex-col place-content-between"
+        data-journey="b"
+      >
+        <div>
+          <h3 class="mb-3 text-lg font-medium">
+            <span class="font-light text-gray-500">Step 2.B</span> Instrument
+            Hypothesis
+          </h3>
+          <p class="mb-2">
+            Frank navigates to the <code>flatMap</code> operator in Line 19 and
+            selects the "Add Log Point to Operator..." code action provided by
+            the Visual Studio Code extension.
+          </p>
+        </div>
+        <img class="mt-3" src="./screenshots/rx-02.png" />
+      </div>
+
+      <div
+        class="p-6 transition bg-red-100 flex flex-col place-content-between"
+        data-journey="a"
+      >
+        <div>
+          <h3 class="mb-3 text-lg font-medium">
+            <span class="font-light text-gray-500">Step 3.A</span> Test
+            Hypothesis
+          </h3>
+          <p class="mb-2">
+            Frank launches the application. Before the web browser can display
+            anything, the debugger in Visual Studio Code halts the program
+            execution at the breakpoint in Line 19.
+          </p>
+          <p class="mb-2">
+            Contrary to Franks expectation, the application was already paused
+            during the creation of the <code>flatMap</code> operator rather than
+            when a value was processed by it.
+          </p>
+          <p class="mb-2">
+            Frank resumes the program execution, though the breakpoint never
+            pauses the application again.
+          </p>
+        </div>
+
+        <img class="mt-3" src="./screenshots/traditional-03.png" />
+      </div>
+      <div
+        class="p-6 transition bg-blue-100 flex flex-col place-content-between"
+        data-journey="b"
+      >
+        <div>
+          <h3 class="mb-3 text-lg font-medium">
+            <span class="font-light text-gray-500">Step 3.B</span> Test
+            Hypothesis
+          </h3>
+          <p class="mb-2">
+            Frank launches the application. While reproducing the reported bug
+            in the browser, the extension produces a log of all events detected
+            at the <code>flatMap</code> operator in Line 19.
+          </p>
+          <p class="mb-2">
+            Frank recognizes a peculiar pattern: After the reset button was
+            clicked, the log point reports multiple values emitted for each
+            click on the increase/decrease button.
+          </p>
+          <p class="mb-2">
+            This confirms Franks hypothesis about the
+            <code>flatMap</code> operator: After the user clicked the reset
+            button, the operator emits multiple values.
+          </p>
+        </div>
+        <img class="mt-3" src="./screenshots/rx-03.png" />
+      </div>
+
+      <div
+        class="p-6 transition bg-red-100 flex flex-col place-content-between"
+        data-journey="a"
+      >
+        <div>
+          <h3 class="mb-3 text-lg font-medium">
+            <span class="font-light text-gray-500">Step 4.A</span> Instrument
+            Hypothesis
+          </h3>
+          <p class="mb-2">
+            After Franks first failed instrumentation attempt using breakpoints,
+            he decides to add trace log statements using the
+            <code>tap</code> operator manually. He adds multiple of them on
+            Lines 19, 24, 28, and 32.
+          </p>
+        </div>
+        <img class="mt-3" src="./screenshots/traditional-04.png" />
+      </div>
+      <div
+        class="p-6 transition bg-blue-100 flex flex-col place-content-between"
+        data-journey="b"
+      >
+        <div>
+          <h3 class="mb-3 text-lg font-medium">
+            <span class="font-light text-gray-500">Step 4.B</span> Resolve Bug
+          </h3>
+          <p class="mb-2">
+            After researching the RxJS documentation, Frank realizes that the
+            <code>flatMap</code> operator <a href="#3">[3]</a> does not
+            unsubscribe observables it created earlier. This sounds like a
+            reasonable explanation for the observed behavior.
+          </p>
+          <p class="mb-2">
+            Frank replaces the faulty operator with the
+            <code>switchMap</code> <a href="#4">[4]</a> operator.
+          </p>
+        </div>
+        <img class="mt-3" src="./screenshots/rx-04.png" />
+      </div>
+
+      <div
+        class="p-6 transition bg-red-100 flex flex-col place-content-between"
+        data-journey="a"
+      >
+        <div>
+          <h3 class="mb-3 text-lg font-medium">
+            <span class="font-light text-gray-500">Step 5.A</span> Test
+            Hypothesis
+          </h3>
+          <p class="mb-2">
+            Frank launches the application again. The manually added code
+            generates the expected trace log in the debuggers console as Frank
+            executes the steps necessary to recreate the reported bug.
+          </p>
+          <p class="mb-2">
+            Once the application produced enough logs, Frank starts to analyse
+            them. Even though it is hard to reassign a log entry to a piece of
+            code and a related action, Frank recognizes a peculiar pattern after
+            some time: After the reset button was clicked, the log statement on
+            Line 32 is executed multiple times, even though the
+            increase/decrease button gets clicked only once.
+          </p>
+          <p class="mb-2">
+            This confirms Franks hypothesis about the
+            <code>flatMap</code> operator: After the user clicked the reset
+            button, the operator emits multiple values.
+          </p>
+        </div>
+        <img class="mt-3" src="./screenshots/traditional-05.png" />
+      </div>
+      <div
+        class="p-6 rounded-b-lg transition bg-blue-100 flex flex-col place-content-between"
+        data-journey="b"
+      >
+        <div>
+          <h3 class="mb-3 text-lg font-medium">
+            <span class="font-light text-gray-500">Step 5.B</span> Verify
+          </h3>
+          <p class="mb-2">
+            Frank launches the application again and repeats the steps necessary
+            to reproduce the reported bug.
+          </p>
+          <p class="mb-2">
+            The application appears to work correctly now. A quick look at the
+            log point monitor confirms that the previously observed behavior of
+            multiple values emitted is fixed.
+          </p>
+          <p class="mb-2">Frank has reached his goal successfully.</p>
+        </div>
+        <img class="mt-3" src="./screenshots/rx-04.png" />
+      </div>
+
+      <div
+        class="p-6 transition bg-red-100 flex flex-col place-content-between"
+        data-journey="a"
+      >
+        <div>
+          <h3 class="mb-3 text-lg font-medium">
+            <span class="font-light text-gray-500">Step 6.A</span> Resolve Bug
+          </h3>
+          <p class="mb-2">
+            After researching the RxJS documentation, Frank knows that the
+            <code>flatMap</code> operator <a href="#3">[3]</a> does not
+            unsubscribe observables it created earlier. This sounds like a
+            reasonable explanation for the observed behavior.
+          </p>
+          <p class="mb-2">
+            Frank replaces the faulty operator with the
+            <code>switchMap</code> <a href="#4">[4]</a> operator.
+          </p>
+        </div>
+        <img class="mt-3" src="./screenshots/traditional-07.png" />
+      </div>
+      <div></div>
+
+      <div
+        class="p-6 transition bg-red-100 flex flex-col place-content-between"
+        data-journey="a"
+      >
+        <div>
+          <h3 class="mb-3 text-lg font-medium">
+            <span class="font-light text-gray-500">Step 7.A</span> Verify
+          </h3>
+          <p class="mb-2">
+            Frank launches the application again and repeats the steps necessary
+            to reproduce the reported bug.
+          </p>
+          <p class="mb-2">
+            The application appears to work correctly now. A look at the trace
+            log confirms that the previously observed behavior of multiple
+            values emitted is gone.
+          </p>
+        </div>
+        <img class="mt-3" src="./screenshots/traditional-07.png" />
+      </div>
+      <div></div>
+
+      <div
+        class="p-6 rounded-b-lg transition bg-red-100 flex flex-col place-content-between"
+        data-journey="a"
+      >
+        <div>
+          <h3 class="mb-3 text-lg font-medium">
+            <span class="font-light text-gray-500">Step 8.A</span> Revert
+            Hypothesis Instrumentation
+          </h3>
+          <p class="mb-2">
+            Frank removes all <code>tap</code> operators he added solely for the
+            trace log generation, except the one in Line 24.
+          </p>
+          <p class="mb-2">
+            Another engineer notices this leftover during the code review,
+            fortunately. Frank removes the forgotten statement afterwards.
+          </p>
+          <p class="mb-2">Finally, Frank has reached his goal.</p>
+        </div>
+        <img class="mt-3" src="./screenshots/traditional-08.png" />
+      </div>
+      <div></div>
+    </main>
+
+    <footer class="w-1/2 m-auto mt-12">
+      <h2 class="mt-4 mb-1 text-xl font-medium">License</h2>
+      <p>
+        This work is licensed under a
+        <a href="https://creativecommons.org/licenses/by/4.0/"
+          >Creative Commons Attribution 4.0 International License</a
+        >.
+      </p>
+
+      <h2 class="mt-4 mb-1 text-xl font-medium">References</h2>
+      <ol class="list-decimal">
+        <li class="mb-1">
+          <a name="1" /> Manuel Alabor and Markus Stolze. 2020. Debugging of
+          RxJS-based applications. In Proceedings of the 7th ACM SIGPLAN
+          International Workshop on Reactive and Event-Based Languages and
+          Systems (REBLS 2020). Association for Computing Machinery, New York,
+          NY, USA, 15–24. DOI:
+          <a href="https://doi.org/10.1145/3427763.3428313"
+            >https://doi.org/10.1145/3427763.3428313</a
+          >
+        </li>
+        <li>
+          <a name="2" /> L. Layman, M. Diep, M. Nagappan, J. Singer, R. Deline
+          and G. Venolia, "Debugging Revisited: Toward Understanding the
+          Debugging Needs of Contemporary Software Developers," 2013 ACM / IEEE
+          International Symposium on Empirical Software Engineering and
+          Measurement, Baltimore, MD, 2013, pp. 383-392, doi:
+          <a href="https://doi.org/10.1109/ESEM.2013.43"
+            >10.1109/ESEM.2013.43</a
+          >
+          .
+        </li>
+        <li>
+          <a name="3" /> ReactiveX. 2020. RxJS - flatMap. Retrieved
+          05-December-2020 from
+          <a href="https://rxjs.dev/api/operators/flatMap"
+            >https://rxjs.dev/api/operators/flatMap</a
+          >. Version
+          <a
+            href="https://github.com/ReactiveX/rxjs/commit/cbc77213e97ecc00d90a65ecf18707b76ebfe7fc"
+            >cbc77213e97ecc00d90a65ecf18707b76ebfe7fc</a
+          >.
+        </li>
+        <li>
+          <a name="4" /> ReactiveX. 2020. RxJS - switchMap. Retrieved
+          05-December-2020 from
+          <a href="https://rxjs.dev/api/operators/switchMap"
+            >https://rxjs.dev/api/operators/switchMap</a
+          >. Version
+          <a
+            href="https://github.com/ReactiveX/rxjs/commit/cbc77213e97ecc00d90a65ecf18707b76ebfe7fc"
+            >cbc77213e97ecc00d90a65ecf18707b76ebfe7fc</a
+          >.
+        </li>
+      </ol>
+    </footer>
+
+    <script>
+      function addHandlers(
+        bothElements,
+        journeyElements,
+        oppositeJourneyElements,
+        oppositeJourneysColorClass
+      ) {
+        journeyElements.forEach((j) =>
+          j.addEventListener("mouseenter", () => {
+            oppositeJourneyElements.forEach((o) => {
+              o.classList.remove(oppositeJourneysColorClass);
+              o.classList.add("opacity-70");
+            });
+            journeyElements.forEach((j) => j.classList.add("shadow-md"));
+            bothElements.forEach((b) => b.classList.add("shadow-md"));
+          })
+        );
+        journeyElements.forEach((j) =>
+          j.addEventListener("mouseleave", () => {
+            oppositeJourneyElements.forEach((o) => {
+              o.classList.add(oppositeJourneysColorClass);
+              o.classList.remove("opacity-70");
+            });
+            journeyElements.forEach((j) => j.classList.remove("shadow-md"));
+            bothElements.forEach((b) => b.classList.remove("shadow-md"));
+          })
+        );
+      }
+
+      const bothJourneys = document.querySelectorAll('[data-journey="both"]');
+      const journeyA = document.querySelectorAll('[data-journey="a"]');
+      const journeyB = document.querySelectorAll('[data-journey="b"]');
+      addHandlers(bothJourneys, journeyA, journeyB, "bg-blue-100");
+      addHandlers(bothJourneys, journeyB, journeyA, "bg-red-100");
+    </script>
+  </body>
+</html>
