@@ -103,6 +103,11 @@
     color: rgba(29, 161, 242, 1);
   }
 
+  .bubble.mastodon:hover a,
+  .bubble.mastodon:active a {
+    color: #6364FF;
+  }
+
   .bubble.linkedin:hover a,
   .bubble.linkedin:active a {
     color: rgba(0, 119, 181, 1);
@@ -147,13 +152,16 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  .icon-mastodon:before {
+    content: "\e900";
+  }
   .icon-twitter:before {
-    content: '\ea96';
+    content: "\ea96";
   }
   .icon-github:before {
-    content: '\eab0';
+    content: "\eab0";
   }
   .icon-linkedin:before {
-    content: '\eac9';
+    content: "\eac9";
   }
 }
