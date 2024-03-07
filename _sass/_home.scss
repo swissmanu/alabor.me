@@ -3,8 +3,9 @@ body.home {
   --color-foreground: #e2c7a7;
   --color-accent: #e74d5a;
 
-  --color-card-foreground: #d1a674;
-  --color-card-background: #f6efdc;
+  --color-card-foreground: var(--color-foreground);
+  --color-card-background: #535355;
+  --color-card-border: #646466;
   --color-card-accent: var(--color-accent);
 
   --size-vcard-width: 695px;
@@ -19,24 +20,6 @@ body.home {
 
   background-color: var(--color-background);
   color: var(--color-foreground);
-
-  // ❤️ https://www.joshwcomeau.com/shadow-palette/
-  --shadow-color: 193deg 57% 2%;
-  --shadow-elevation-low: 0px 0.5px 0.6px hsl(var(--shadow-color) / 0.34),
-    0px 0.9px 1px -1.2px hsl(var(--shadow-color) / 0.34),
-    -0.1px 2.2px 2.5px -2.5px hsl(var(--shadow-color) / 0.34);
-  --shadow-elevation-medium: 0px 0.5px 0.6px hsl(var(--shadow-color) / 0.36),
-    0px 1.8px 2px -0.8px hsl(var(--shadow-color) / 0.36),
-    -0.1px 4.4px 5px -1.7px hsl(var(--shadow-color) / 0.36),
-    -0.3px 10.8px 12.2px -2.5px hsl(var(--shadow-color) / 0.36);
-  --shadow-elevation-high: 0px 0.5px 0.6px hsl(var(--shadow-color) / 0.34),
-    -0.1px 3.1px 3.5px -0.4px hsl(var(--shadow-color) / 0.34),
-    -0.1px 5.9px 6.6px -0.7px hsl(var(--shadow-color) / 0.34),
-    -0.2px 9.6px 10.8px -1.1px hsl(var(--shadow-color) / 0.34),
-    -0.4px 15.4px 17.3px -1.4px hsl(var(--shadow-color) / 0.34),
-    -0.6px 24.1px 27.1px -1.8px hsl(var(--shadow-color) / 0.34),
-    -0.9px 36.6px 41.2px -2.1px hsl(var(--shadow-color) / 0.34),
-    -1.3px 53.9px 60.7px -2.5px hsl(var(--shadow-color) / 0.34);
 }
 
 .home {
@@ -63,11 +46,11 @@ body.home {
     column-gap: 2rem;
     background: var(--color-card-background);
     color: var(--color-card-foreground);
-    box-shadow: var(--shadow-elevation-medium);
     border-radius: 20px;
     overflow: hidden;
     min-width: var(--size-vcard-width);
     border: 12px solid var(--color-card-background);
+    outline: 1px solid var(--color-card-border);
 
     & > div {
       margin-bottom: 1rem;
@@ -95,8 +78,7 @@ body.home {
 
     i[class^="icon-"] {
       &::before {
-        color: var(--color-card-foreground);
-        opacity: 0.6;
+        color: var(--color-foreground);
 
         /* use !important to prevent issues with browser extensions that change fonts */
         font-family: "icomoon" !important;
@@ -122,7 +104,7 @@ body.home {
     }
 
     a {
-      font-weight: 400;
+      font-weight: 500;
     }
   }
 
