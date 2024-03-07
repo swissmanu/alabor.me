@@ -1,56 +1,86 @@
 ---
 layout: page
 ---
-<article class="home" itemscope itemtype="http://schema.org/Person">
-  <section class="vcard">
-    <header>
-      <img class="avatar" src="/assets/portrait.jpg" />
-      <h1><span itemprop="givenName">Manuel</span> <span itemprop="familyName">Alabor</span></h1>
-    </header>
-    <nav>
-      <ul>
-        <li class="bubble github">
-          <a href="https://github.com/swissmanu" title="Github" rel="me">
-            <i class="icon-github" /></i>
-          </a>
-        </li>
-        <li class="bubble mastodon">
-          <a href="https://fosstodon.org/@manuelalabor" title="Mastodon" rel="me">
+
+<main class="home" itemscope itemtype="http://schema.org/Person">
+  <header class="vcard">
+    <img
+      itemprop="image"
+      src="/assets/portrait.jpg"
+      alt="Portrait of Manuel Alabor"
+    />
+    <div>
+      <h1>
+        <span itemprop="givenName">Manuel</span>
+        <span itemprop="familyName">Alabor</span>
+      </h1>
+      <nav>
+        <ul>
+          <li>
             <i class="icon-mastodon"></i>
-          </a>
-        </li>
-        <li class="bubble linkedin">
-          <a href="https://www.linkedin.com/in/manuelalabor" title="LinkedIn" rel="me">
+            <a
+              href="https://fosstodon.org/@manuelalabor"
+              target="_blank"
+              title="Find me on Mastodon"
+              rel="me"
+            >
+              Mastodon
+            </a>
+          </li>
+          <li>
+            <i class="icon-github"></i>
+            <a
+              href="https://github.com/swissmanu"
+              target="_blank"
+              title="Find me on GitHub"
+              rel="me"
+            >
+              GitHub
+            </a>
+          </li>
+          <li>
             <i class="icon-linkedin"></i>
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </section>
-  <section class="apps">
-    <header>
-      <h2>Apps</h2>
-    </header>
-    <ul>
-      <li><a href="talkbeamer">TalkBeamer</a></li>
-    </ul>
-  </section>
-  {%- if site.posts.size > 0 -%}
-  <section class="publications">
-    <header>
-      <h2>Publications</h2>
-    </header>
-    <nav>
+            <a
+              href="https://www.linkedin.com/in/manuelalabor"
+              target="_blank"
+              title="Find me on LinkedIn"
+              rel="me"
+            >
+              LinkedIn
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="content">
+    {%- if site.posts.size > 0 -%}
+    <section class="essays">
+      <header>
+        <h2>Essays</h2>
+      </header>
+      <nav>
+        <ul>
+          {%- for post in site.posts -%}
+          <li>
+            <a href="{{ post.url | relative_url}}">{{ post.title }}</a><br />
+            <time datetime="{{ post.date }}"
+              >{{ post.date | date: "%d.%m.%Y" }}</time
+            >
+          </li>
+          {%- endfor -%}
+        </ul>
+      </nav>
+    </section>
+    {%- endif -%}
+    <section class="apps">
+      <header>
+        <h2>Apps</h2>
+      </header>
       <ul>
-        {%- for post in site.posts -%}
-        <li>
-          <a href="{{ post.url | relative_url}}">
-            {{ post.title }}
-          </a>
-        </li>
-        {%- endfor -%}
+        <li><a href="talkbeamer">TalkBeamer</a></li>
       </ul>
-    </nav>
+    </section>
   </section>
-  {%- endif -%}
-</article>
+</main>

@@ -3,140 +3,162 @@
  * Thx! :)
  */
 
- @import url(//fonts.googleapis.com/css?family=Inconsolata:400,700|Montserrat:700);
+@import url(//fonts.googleapis.com/css?family=Inconsolata:400,500,600,700|Montserrat:200,300,400,500,700);
 
- html {
-   font: 16px/1.5 Inconsolata, sans-serif;
- }
+html {
+  font: 16px/1.5 Inconsolata, sans-serif;
+}
 
- @media (min-width: 30rem) {
-   html {
-     font-size: 20px;
-   }
- }
+@media (min-width: 30rem) {
+  html {
+    font-size: 20px;
+  }
+}
 
- body {
-   margin: 2rem 0 5rem;
-   color: #333;
- }
+body {
+  margin: 2rem 0 5rem;
+  color: #333;
+}
 
- @media (min-width: 30rem) {
-   body {
-     margin-top: 5rem;
-   }
- }
+@media (min-width: 30rem) {
+  body {
+    margin-top: 5rem;
+  }
+}
 
- a {
-   color: #0074d9; /* From http://clrs.cc */
-   text-decoration: none;
- }
+a {
+  color: #0074d9; /* From http://clrs.cc */
+  text-decoration: none;
+}
 
- a:hover, a:focus {
-   text-decoration: underline;
- }
+a:hover,
+a:focus {
+  text-decoration: underline;
 
- h1, h2, h3, h4, h5, h6 {
-   font-family: Montserrat, sans-serif;
-   margin: 0 0 0.5rem -0.1rem /* align left edge */;
-   line-height: 1;
-   color: #111;
-   text-rendering: optimizeLegibility;
- }
+  &::before {
+    text-decoration: none;
+  }
+}
 
- h1 {
-   font-size: 2.5rem;
-   margin-bottom: 1rem;
- }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Montserrat, sans-serif;
+  margin: 0 0 0.5rem -0.1rem /* align left edge */;
+  line-height: 1;
+  color: #111;
+  text-rendering: optimizeLegibility;
+}
 
- @media (min-width: 30rem) {
-   h1 {
-     font-size: 3rem;
-     margin-bottom: 3rem;
-   }
- }
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
 
- h1 a {
-   color: inherit;
- }
+@media (min-width: 30rem) {
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+  }
+}
 
- h2 {
-   margin-top: 2rem;
-   font-size: 1.25rem;
-   margin-bottom: 0.75rem;
- }
+h1 a {
+  color: inherit;
+}
 
- @media (min-width: 30rem) {
-   h2 {
-     margin-top: 2.5rem;
-     font-size: 1.5rem;
-     margin-bottom: 1rem;
-   }
- }
+h2 {
+  margin-top: 2rem;
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
 
- h3, h4, h5, h6 {
-   margin-top: 1.5rem;
-   font-size: 1rem;
-   text-transform: uppercase;
- }
+@media (min-width: 30rem) {
+  h2 {
+    margin-top: 2.5rem;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+}
 
- p, ul, ol, dl, table, pre, blockquote {
-   margin-top: 0;
-   margin-bottom: 1rem;
- }
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
 
- ul, ol {
-   padding-left: 1.5rem;
- }
+p,
+ul,
+ol,
+dl,
+table,
+pre,
+blockquote {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
 
- dd {
-   margin-left: 1.5rem;
- }
+ul,
+ol {
+  padding-left: 1.5rem;
+}
 
- blockquote {
-   margin-left: 0;
-   margin-right: 0;
-   padding: .5rem 1rem;
-   border-left: .25rem solid #ccc;
-   color: #666;
- }
+dd {
+  margin-left: 1.5rem;
+}
 
- blockquote p:last-child {
-   margin-bottom: 0;
- }
+blockquote {
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0.5rem 1rem;
+  border-left: 0.25rem solid #ccc;
+  color: #666;
+}
 
- hr {
-   border: none;
-   margin: 1.5rem 0;
-   border-bottom: 1px solid #ccc;
-   position: relative;
-   top: -1px;
- }
+blockquote p:last-child {
+  margin-bottom: 0;
+}
 
- table {
-   width: 100%;
-   border: 1px solid #ccc;
-   border-collapse: collapse;
- }
+hr {
+  border: none;
+  margin: 1.5rem 0;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+  top: -1px;
+}
 
- td, th {
-   padding: .25rem .5rem;
-   border: 1px solid #ccc;
- }
+table {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+}
 
- pre, code {
-   font-family: inherit;
-   background-color: #eee;
- }
+td,
+th {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #ccc;
+}
 
- pre {
-   padding: .5rem 1rem;
-   font-size: 0.8rem;
- }
+pre,
+code {
+  font-family: inherit;
+  background-color: #eee;
+}
 
- code {
-   padding: .1rem .25rem;
- }
+pre {
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+}
 
- pre > code {
-   padding: 0;
- }
+code {
+  padding: 0.1rem 0.25rem;
+}
+
+pre > code {
+  padding: 0;
+}
