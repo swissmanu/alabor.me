@@ -1,26 +1,62 @@
 body.home {
-  --color-background: #e6e6e6;
-  --color-foreground: #555;
-  --color-accent: #e74d5a;
-
-  --color-card-foreground: var(--color-foreground);
-  --color-card-background: #efefef;
-  --color-card-border: #d5d5d5;
-  --color-card-accent: var(--color-accent);
-
   --size-card-width: 695px;
 
-  @media (prefers-color-scheme: dark) {
-    --color-background: #3a3a3b;
-    --color-foreground: #e2c7a7;
-    --color-accent: #e74d5a;
+  // Light Theme
+  --color-light-background: #e6e6e6;
+  --color-light-foreground: #555;
+  --color-light-accent: #e74d5a;
+  --color-light-card-background: #efefef;
+  --color-light-card-border: #d5d5d5;
 
-    --color-card-background: #535355;
-    --color-card-border: #646466;
+  // Dark Theme
+  --color-dark-background: #3a3a3b;
+  --color-dark-foreground: #e2c7a7;
+  --color-dark-accent: #e74d5a;
+  --color-dark-card-background: #535355;
+  --color-dark-card-border: #646466;
+
+  // Default Theme (light)
+  --color-background: var(--color-light-background);
+  --color-foreground: var(--color-light-foreground);
+  --color-accent: var(--color-light-accent);
+  --color-card-foreground: var(--color-foreground);
+  --color-card-background: var(--color-light-card-background);
+  --color-card-border: var(--color-light-card-border);
+  --color-card-accent: var(--color-accent);
+
+  // System preference dark theme
+  @media (prefers-color-scheme: dark) {
+    --color-background: var(--color-dark-background);
+    --color-foreground: var(--color-dark-foreground);
+    --color-accent: var(--color-dark-accent);
+    --color-card-background: var(--color-dark-card-background);
+    --color-card-border: var(--color-dark-card-border);
+  }
+
+  // Enforced Light Theme
+  &.light {
+    --color-background: var(--color-light-background);
+    --color-foreground: var(--color-light-foreground);
+    --color-accent: var(--color-light-accent);
+    --color-card-background: var(--color-light-card-background);
+    --color-card-border: var(--color-light-card-border);
+  }
+
+  // Enforced Dark Theme
+  &.dark {
+    --color-background: var(--color-dark-background);
+    --color-foreground: var(--color-dark-foreground);
+    --color-accent: var(--color-dark-accent);
+    --color-card-background: var(--color-dark-card-background);
+    --color-card-border: var(--color-dark-card-border);
   }
 
   background-color: var(--color-background);
   color: var(--color-foreground);
+
+  transition-property: color background-color;
+  transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition-duration: 250ms;
 }
 
 .home {
@@ -163,5 +199,11 @@ body.home {
         margin-bottom: 1.2rem;
       }
     }
+  }
+
+  button {
+    position: fixed;
+    top: 0;
+    right: 0;
   }
 }

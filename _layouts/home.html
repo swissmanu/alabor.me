@@ -84,3 +84,98 @@ layout: page
     </section>
   </section>
 </main>
+<script>
+  const hasLocalStorage = (() => {
+    if (typeof window.localStorage !== "undefined") {
+      try {
+        window.localStorage.setItem("test", "yes");
+        if (window.localStorage.getItem("test") === "yes") {
+          window.localStorage.removeItem("test");
+          return true;
+        }
+        return false;
+      } catch {
+        return false;
+      }
+      return true;
+    }
+  })();
+  const hasMatchMedia = typeof window.matchMedia === "function";
+
+  if (hasLocalStorage && hasMatchMedia) {
+    const LOCAL_STORAGE_KEY = "selectedColorScheme";
+
+    function getSelectedColorScheme() {
+      return window.localStorage.getItem(LOCAL_STORAGE_KEY);
+    }
+
+    function setSelectedColorScheme(scheme) {
+      window.localStorage.setItem(LOCAL_STORAGE_KEY, scheme);
+      return scheme;
+    }
+
+    function toggleScheme(prev) {
+      switch (prev) {
+        case "light":
+          return "dark";
+        case "dark":
+        default:
+          return "light";
+      }
+    }
+
+    function enforceColorScheme(scheme) {
+      const body = document.querySelector("body");
+      if (body) {
+        body.classList.remove(toggleScheme(scheme));
+        body.classList.add(scheme);
+      }
+    }
+
+    function createColorSchemeToggleButton(
+      selectedColorScheme,
+      systemPreferredColorScheme
+    ) {
+      const button = document.createElement("button");
+      button.textContent = selectedColorScheme ?? systemPreferredColorScheme;
+      button.addEventListener("click", () => {
+        const nextScheme = setSelectedColorScheme(
+          toggleScheme(getSelectedColorScheme() ?? systemPreferredColorScheme)
+        );
+        button.textContent = nextScheme;
+        enforceColorScheme(nextScheme);
+      });
+
+      // Sync button state with changed system preference, if no explicit scheme was selected yet:
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", (event) => {
+          const preferredColorScheme = event.matches ? "dark" : "light";
+          if (!getSelectedColorScheme()) {
+            button.textContent = preferredColorScheme;
+          }
+        });
+      return button;
+    }
+
+    const systemPreferredColorScheme = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches
+      ? "dark"
+      : "light";
+    const selectedColorScheme = getSelectedColorScheme();
+    if (selectedColorScheme) {
+      enforceColorScheme(selectedColorScheme);
+    }
+
+    const home = document.querySelector("main.home");
+    if (home) {
+      home.appendChild(
+        createColorSchemeToggleButton(
+          selectedColorScheme,
+          systemPreferredColorScheme
+        )
+      );
+    }
+  }
+</script>
