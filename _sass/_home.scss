@@ -1,22 +1,23 @@
 body.home {
-  --color-background: #3a3a3b;
-  --color-foreground: #e2c7a7;
+  --color-background: #e6e6e6;
+  --color-foreground: #555;
   --color-accent: #e74d5a;
 
   --color-card-foreground: var(--color-foreground);
-  --color-card-background: #535355;
-  --color-card-border: #646466;
+  --color-card-background: #efefef;
+  --color-card-border: #d5d5d5;
   --color-card-accent: var(--color-accent);
 
-  --size-vcard-width: 695px;
+  --size-card-width: 695px;
 
-  // --color-background: white;
-  // --color-foreground: #111;
+  @media (prefers-color-scheme: dark) {
+    --color-background: #3a3a3b;
+    --color-foreground: #e2c7a7;
+    --color-accent: #e74d5a;
 
-  // @media (prefers-color-scheme: dark) {
-  //   --color-background: rgb(43, 43, 43);
-  //   --color-foreground: white;
-  // }
+    --color-card-background: #535355;
+    --color-card-border: #646466;
+  }
 
   background-color: var(--color-background);
   color: var(--color-foreground);
@@ -48,7 +49,7 @@ body.home {
     color: var(--color-card-foreground);
     border-radius: 20px;
     overflow: hidden;
-    min-width: var(--size-vcard-width);
+    min-width: var(--size-card-width);
     border: 12px solid var(--color-card-background);
     outline: 1px solid var(--color-card-border);
 
@@ -112,7 +113,7 @@ body.home {
     display: grid;
     grid-template-columns: repeat(2, 0.5fr);
     column-gap: 3rem;
-    max-width: calc(var(--size-vcard-width) - 3rem);
+    max-width: calc(var(--size-card-width) - 3rem);
     margin-top: 4rem;
 
     h2 {
