@@ -181,7 +181,22 @@ body.home {
 
   button {
     position: fixed;
-    top: 0;
-    right: 0;
+    top: 1rem;
+    right: 1rem;
+    appearance: none;
+    border: none;
+    background: none;
+    outline: none;
+
+    svg {
+      height: 1.5rem;
+      fill: var(--color-foreground);
+      opacity: 0.2;
+      transition: opacity 400ms;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
   }
 }
