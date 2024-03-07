@@ -53,6 +53,28 @@ body.home {
     border: 12px solid var(--color-card-background);
     outline: 1px solid var(--color-card-border);
 
+    transform-origin: center bottom;
+    animation-name: appear;
+    animation-timing-function: cubic-bezier(0.26, 0.53, 74, 1.48);
+    animation-duration: 600ms;
+
+    @media screen and (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
+    @keyframes appear {
+      0% {
+        opacity: 0.1;
+        transform: translateY(-10px) scale(1.05);
+      }
+      10% {
+        opacity: 0.2;
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
     & > div {
       margin-bottom: 1rem;
       align-self: end;
