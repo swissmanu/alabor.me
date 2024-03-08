@@ -1,7 +1,17 @@
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="Manuel Alabor">
-<title>{%- if page.title -%}{{ page.title }} | {{ site.title }}{%- else -%}{{ site.title }}{%- endif -%}</title>
-<link rel="stylesheet" type="text/css" href="/styles.css">
-<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" id="favicon">
+<meta charset="utf-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, maximum-scale=1"
+/>
+<meta name="description" content="Manuel Alabor" />
+<title>
+  {%- if page.title -%}{{ page.title }} | {{ site.title }}{%- else -%}{{
+  site.title }}{%- endif -%}
+</title>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="/styles_{% if page.url == '/' %}home{% else %}main{% endif %}.css"
+/>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" id="favicon" />
 {%- include google-analytics.html -%}

@@ -1,4 +1,7 @@
-body.home {
+@import "base/fonts";
+@import "base/normalize";
+
+:root {
   --size-card-width: 695px;
 
   // Light Theme
@@ -32,14 +35,27 @@ body.home {
     --color-card-background: var(--color-dark-card-background);
     --color-card-border: var(--color-dark-card-border);
   }
+}
+
+html {
+  font-family: Montserrat, sans-serif;
+  font-size: 20px;
+}
+
+body {
+  transition-property: color background-color;
+  transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition-duration: 250ms;
 
   // Enforced Light Theme
   &.light {
     --color-background: var(--color-light-background);
     --color-foreground: var(--color-light-foreground);
     --color-accent: var(--color-light-accent);
+    --color-card-foreground: var(--color-foreground);
     --color-card-background: var(--color-light-card-background);
     --color-card-border: var(--color-light-card-border);
+    --color-card-accent: var(--color-accent);
   }
 
   // Enforced Dark Theme
@@ -53,27 +69,22 @@ body.home {
 
   background-color: var(--color-background);
   color: var(--color-foreground);
-
-  transition-property: color background-color;
-  transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
-  transition-duration: 250ms;
 }
 
 .home {
-  font-family: Montserrat, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   padding-top: 2rem;
 
-  h1,
-  h2 {
-    color: inherit;
-  }
-
   a {
     color: var(--color-accent);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   .vcard {
@@ -117,7 +128,8 @@ body.home {
     }
 
     h1 {
-      margin-bottom: 0.35rem;
+      font-size: 3rem;
+      margin: 0;
     }
 
     ul {
@@ -155,6 +167,8 @@ body.home {
     h2 {
       font-weight: 400;
       font-size: 1rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
     }
 
     time {
