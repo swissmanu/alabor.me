@@ -1,5 +1,6 @@
 @import "base/fonts";
 @import "base/normalize";
+$size-mobile-breakpoint: 785px;
 
 :root {
   --size-card-width: 695px;
@@ -124,6 +125,18 @@ body {
       }
     }
 
+    @media (max-width: $size-mobile-breakpoint) {
+      min-width: 100vw;
+      grid-template-columns: 1fr;
+      justify-items: center;
+      outline-right: unset;
+      outline-left: unset;
+      border-radius: unset;
+      border: unset;
+      overflow: unset;
+      animation: none;
+    }
+
     & > div {
       margin-bottom: 1rem;
       align-self: end;
@@ -132,6 +145,12 @@ body {
     h1 {
       font-size: 3rem;
       margin: 0;
+
+      @media (max-width: $size-mobile-breakpoint) {
+        font-size: 2rem;
+        text-align: center;
+        margin-top: -0.5rem;
+      }
     }
 
     ul {
@@ -140,22 +159,45 @@ body {
       gap: 1.5rem;
       margin: 0;
       padding: 0;
+
+      @media (max-width: $size-mobile-breakpoint) {
+        margin-top: 0.5rem;
+        gap: 1rem;
+        justify-content: center;
+      }
     }
 
     li {
+      font-size: 0.85rem;
       display: flex;
       align-items: center;
       gap: 0.4rem;
-      font-size: 0.85rem;
+
+      @media (max-width: $size-mobile-breakpoint) {
+        font-size: 0.65rem;
+        gap: 0.2rem;
+      }
     }
 
     svg {
       height: 1rem;
       fill: var(--color-card-foreground);
+
+      @media (max-width: $size-mobile-breakpoint) {
+        height: 0.85rem;
+      }
     }
 
     a {
       font-weight: 500;
+    }
+
+    img {
+      @media (max-width: $size-mobile-breakpoint) {
+        border-radius: 50%;
+        border: 1px solid var(--color-card-border);
+        transform: translateY(-20%);
+      }
     }
   }
 
@@ -165,12 +207,36 @@ body {
     column-gap: 3rem;
     max-width: calc(var(--size-card-width) - 3rem);
     margin-top: 4rem;
+    margin-bottom: 2rem;
+
+    @media (max-width: $size-mobile-breakpoint) {
+      grid-template-columns: 1fr;
+      padding: 0 2rem;
+      row-gap: 1rem;
+      margin-top: 0;
+
+      section:first-of-type {
+        order: 2;
+
+        h2 {
+          margin-top: 1rem;
+        }
+      }
+      section:last-of-type {
+        order: 1;
+      }
+    }
 
     h2 {
       font-weight: 400;
       font-size: 1rem;
       margin-top: 2.5rem;
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
+
+      @media (max-width: $size-mobile-breakpoint) {
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
     }
 
     time {
@@ -192,11 +258,19 @@ body {
       &:not(:last-child) {
         margin-bottom: 1.2rem;
       }
+
+      @media (max-width: $size-mobile-breakpoint) {
+        font-size: 0.75rem;
+
+        &:not(:last-child) {
+          margin-bottom: 0.8rem;
+        }
+      }
     }
   }
 
   button {
-    position: fixed;
+    position: absolute;
     top: 1rem;
     right: 1rem;
     appearance: none;
@@ -213,6 +287,13 @@ body {
       &:hover {
         opacity: 1;
       }
+    }
+
+    @media (max-width: $size-mobile-breakpoint) {
+      position: relative;
+      top: unset;
+      right: unset;
+      margin-bottom: 2rem;
     }
   }
 }
